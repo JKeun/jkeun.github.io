@@ -6,6 +6,14 @@
     <atom:link href="https://jkeun.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>IPython Notebook Convert</title>
+        <description></description>
+        <pubDate>Thu, 02 Mar 2017 00:00:00 +0900</pubDate>
+        <link>https://jkeun.github.io/2017-03-02/ipynb-convert/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-03-02/ipynb-convert/</guid>
+      </item>
+    
+      <item>
         <title>한글 문서 스타일 샘플</title>
         <description>&lt;p&gt;이 글은 스타일을 모아둔 것입니다. 소스 코드를 확인하여 스타일을 적용하는 방법을 알아보세요.&lt;/p&gt;
 
