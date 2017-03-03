@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>JAY</title>
-    <link>http://localhost:4000</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://jkeun.github.io</link>
+    <atom:link href="https://jkeun.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>IPython Notebook Convert</title>
@@ -4439,8 +4439,8 @@ L 480.340625 11.772656
 
 &lt;/div&gt;</description>
         <pubDate>Thu, 02 Mar 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-03-02/ipynb-convert/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-03-02/ipynb-convert/</guid>
+        <link>https://jkeun.github.io/2017-03-02/ipynb-convert/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-03-02/ipynb-convert/</guid>
       </item>
     
       <item>
@@ -4602,8 +4602,8 @@ L 480.340625 11.772656
 &lt;p&gt;이 문서는 &lt;a href=&quot;http://guny.kr/stuff/klorem/&quot;&gt;한글 Lorem Ipsum&lt;/a&gt;으로 생성되었습니다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 19 Jan 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-01-19/style-test-ko/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-19/style-test-ko/</guid>
+        <link>https://jkeun.github.io/2017-01-19/style-test-ko/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-01-19/style-test-ko/</guid>
       </item>
     
   </channel>
