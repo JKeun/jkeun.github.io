@@ -9,9 +9,25 @@
 
 -->
 <html lang="en">
-<script type="text/javascript" async
-  src="http://cdn.mathjax.org/mathjax/2.7-latest/config/TeX-AMS-MML_HTMLorMML.js?V=2.7.0">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\(', '\)'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
 </script>
+<script type="text/javascript"
+                src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,15 +45,15 @@
   <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>About - JAY</title>
 <meta property="og:title" content="About" />
-<link rel="canonical" href="http://jkeun.github.io/about/" />
-<meta property="og:url" content="http://jkeun.github.io/about/" />
+<link rel="canonical" href="https://jkeun.github.io/about/" />
+<meta property="og:url" content="https://jkeun.github.io/about/" />
 <meta property="og:site_name" content="JAY" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
 "@type": "WebSite",
 "name": "JAY",
 "headline": "About",
-"url": "http://jkeun.github.io/about/"}</script>
+"url": "https://jkeun.github.io/about/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -63,7 +79,7 @@ ga('send', 'pageview');
   <div class="content-container">
     <header>
   <div class="header-small">
-    <a href="http://jkeun.github.io">JAY</a>
+    <a href="https://jkeun.github.io">JAY</a>
   </div>
 </header>
 <div class="page">
