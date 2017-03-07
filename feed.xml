@@ -18,15 +18,15 @@
 &lt;center&gt;&lt;mark&gt;&quot;We are drowning in information and starving for knowledge. - John Naisbitt.&quot;&lt;/mark&gt;&lt;/center&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;우리는 빅데이터 시대에 들어섰다. 예를 들면 현재 약 1 trillion (1조) web pages 가 있고 (2008년 기준), 유투브에는 매 초 한 시간의 동영상이 업로드 되며, 사람의 1000개의 유전체는 &lt;script type=&quot;math/tex&quot;&gt;3.8 \times 10^9&lt;/script&gt; 짝의 길이를 가진다.&lt;/p&gt;
+&lt;p&gt;우리는 빅데이터 시대에 들어섰다. 그 예로 현재 약 1 trillion (1조) web pages 가 존재하고 있고, (2008년 기준) 유투브에는 매 초 한 시간의 동영상이 업로드 되며, 사람의 1000개의 유전체는 &lt;script type=&quot;math/tex&quot;&gt;3.8 \times 10^9&lt;/script&gt; 짝의 길이를 가지는 데이터로 구성되어 있다.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Machine learning&lt;/strong&gt;은 이러한 데이터의 홍수에서 automated methods of data analysis를 말한다. 특히 우리는 machine learning을 데이터에서 자동으로 패턴을 감지하고, 미래의 데이터를 예측하기 위해 밝혀지지 않은 패턴을 사용하고, 또는 불확실성 아래 어떠한 의사결정을 수행하기 위한 일련의 방법론 (a set of methods) 이라 정의한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Machine learning&lt;/strong&gt;은 이러한 데이터의 홍수에서 automated methods of data analysis를 의미한다. 특히 우리는 machine learning을 데이터 속에서 자동으로 패턴을 감지하고, 미래의 데이터를 예측하기 위해 밝혀지지 않은 패턴을 사용하고, 또는 불확실성 아래 어떠한 의사결정을 수행하기 위한 일련의 방법론 (a set of methods) 이라 정의한다.&lt;/p&gt;
 
-&lt;p&gt;본 책에서 주요 관점은 &lt;strong&gt;Probability theory (확률론)&lt;/strong&gt;이 문제를 풀기 위한 가장 좋은 방법이라는 것이다. Probability theory 는 불확실성을 포함한 어떠한 문제에서건 적용이 가능하다. 머신러닝에서 불확실성은 다양한 형태로 나타난다: 주어진 과거 데이터로부터 무엇이 가장 미래를 잘 예측하는가? 무엇이 데이터를 가장 잘 설명하는 최적의 모델인가? 어떠한 측정법을 수행해야 하는가? 등. 확률론적 머신러닝 접근법은 통계학 분야와 아주 밀접하게 관계되어 있다. 단지 emphasis and terminology (강조점과 용어들)만 미세하게 다를 뿐이다.&lt;/p&gt;
+&lt;p&gt;본 책에서 주요 관점은 &lt;strong&gt;Probability theory (확률론)&lt;/strong&gt;이 문제를 풀기 위한 가장 좋은 방법이라는 것이다. Probability theory 는 불확실성을 포함한 문제에서 언제든지  적용가능하다. 머신러닝에서 불확실성은 다양한 형태로 나타난다: 주어진 과거 데이터로부터 무엇이 가장 미래를 잘 예측하는가? 무엇이 데이터를 가장 잘 설명하는 최적의 모델인가? 어떠한 측정법을 수행해야 하는가? 등. 확률론적 머신러닝 접근법은 통계학 분야와 아주 밀접하게 관계되어 있다. 단지 emphasis and terminology (강조점과 용어들)만 미세하게 다를 뿐이다.&lt;/p&gt;
 
-&lt;p&gt;앞으로 우리는 다양한 데이터와 업무에 맞는 다양한 확률론적 모형들을 배울 것이다. 또한 이러한 모형들을 사용하고 학습시키는 다양한 알고리즘들도 배울 것이다. 목표는 확률론적 모델링과 추론에 대한 통합된 시각을 갖는 것이라 말할 수 있다. 비록 우리는 어마어마한 데이터셋을 다루는 방봅론에 대한 computational efficiency 에 주의를 기울일 테지만, 그것들은 다른 책에서 더 잘 다뤄줄 것이다.&lt;/p&gt;
+&lt;p&gt;앞으로 우리는 다양한 데이터와 업무에 맞는 다양한 확률론적 모형들을 배울 것이며, 또한 이러한 모형들을 사용하고 학습시키는 다양한 알고리즘들도 배울 것이다. 최종적인 목표는 확률론적 모델링과 추론에 대한 통합된 시각을 갖는 것이라 말할 수 있다. 비록 대부분의 사람들은 어마어마한 데이터셋을 다루는 방법론과 computational efficiency 에 주의를 기울일 테지만, 그것들은 다른 책에서 더 잘 다뤄줄 것이므로 이 책에선 생략한다.&lt;/p&gt;
 
-&lt;p&gt;그러나 우리가 중요하게 봐야할 것은 그렇게 어마어마한 데이터셋을 다룰지라도, 우리가 관심을 가지는 the effective number of data points 는 꽤나 작다는 것이다. 사실 다양한 도메인을 거친 데이터는 &lt;strong&gt;long tail&lt;/strong&gt;이라 불리우는 영역을 내보인다. words와 같이 작은 것들은 아주 공통적이지만, 대부분의 모든 것들은 아주 생소한 것들을 의믜한다(Pareto 법칙). 이것은 우리가 이 책에서 다루는 small samples sizes로부터 일반화 되어진 핵심 통계학적 이슈는 빅데이터 분야에서 아주 밀접하게 관계되 있다는 것을 의미한다.&lt;/p&gt;
+&lt;p&gt;또한 우리가 중요하게 봐야할 것은 그렇게 어마어마한 데이터셋을 다룰지라도, 우리가 관심을 가지는 the effective number of data points 는 꽤나 작다는 것이다. 사실 다양한 도메인을 거친 데이터는 &lt;strong&gt;long tail&lt;/strong&gt;이라 불리우는 영역을 내보인다. words와 같이 작은 것들은 아주 공통적이지만, 대부분의 모든 것들은 아주 생소한 것들을 의믜한다(Pareto 법칙). 이것은 이 책에서 다루는 small samples sizes로부터 일반화 되어진 핵심 통계학적 이슈는 빅데이터 분야와 아주 밀접하게 관계되있다는 것을 의미한다.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h3 id=&quot;111-types-of-machine-learning&quot;&gt;1.1.1 Types of machine learning&lt;/h3&gt;
