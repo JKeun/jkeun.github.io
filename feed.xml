@@ -44,8 +44,8 @@
 &lt;p&gt;마지막으로 세번째 타입은 &lt;del&gt;다소 덜 사용되는&lt;/del&gt;  &lt;strong&gt;reinforcement learning(강화학습)&lt;/strong&gt; 이다. 이것은 적절한 reward와 punishment가 주어진 상황에서 어떻게 결정하고 행동할지에 대한 학습에 유용하다. 그러나 불행하게도, RL은 이 책에선 다루지 않는다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Mar 2017 00:00:00 +0900</pubDate>
-        <link>https://jkeun.github.io/2017-03-06/ml-1-1-introduction/</link>
-        <guid isPermaLink="true">https://jkeun.github.io/2017-03-06/ml-1-1-introduction/</guid>
+        <link>https://jkeun.github.io/2017-03-06/ml-1-1-machine-learning-what-why/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-03-06/ml-1-1-machine-learning-what-why/</guid>
       </item>
     
   </channel>
