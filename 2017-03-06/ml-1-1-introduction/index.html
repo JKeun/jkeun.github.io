@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--
+       _             __           
+      (_)___  ____  / /____  _____
+     / / __ \/ __ \/ __/ _ \/ ___/
+    / / / / / /_/ / /_/  __(__  ) 
+ _ / /_/ /_/\____/\__/\___/____/  
+/___/ D A T A , L E A R N I N G                        
+
+-->
+<html lang="en">
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ML 1 Introduction - 1.1 Machine learning: what and why?</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for JAY" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>ML 1 Introduction - 1.1 Machine learning: what and why? - JAY</title>
+<meta property="og:title" content="ML 1 Introduction - 1.1 Machine learning: what and why?" />
+<meta name="description" content="What and Why?" />
+<meta property="og:description" content="What and Why?" />
+<link rel="canonical" href="https://jkeun.github.io/2017-03-06/ml-1-1-introduction/" />
+<meta property="og:url" content="https://jkeun.github.io/2017-03-06/ml-1-1-introduction/" />
+<meta property="og:site_name" content="JAY" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-06T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "ML 1 Introduction - 1.1 Machine learning: what and why?",
+"datePublished": "2017-03-06T00:00:00+09:00",
+"description": "What and Why?",
+"url": "https://jkeun.github.io/2017-03-06/ml-1-1-introduction/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85991641-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="https://jkeun.github.io">JAY</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">ML 1 Introduction - 1.1 Machine learning: what and why?</div>
+  <span class="post-date">
+    <time>06 Mar 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#machine learning">
+          <span>machine learning</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#probabilistic">
+          <span>probabilistic</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#statistics">
+          <span>statistics</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#data sicence">
+          <span>data sicence</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p>머신러닝을 본격적으로 배운지 벌써 1년이 되어 간다. 짧다면 짧은 3개월이란 시간 동안 미친듯이 배우고, 소화하려고 노력했었다. 그리고 배움을 증명하고자 나에게 주는 훈장처럼 산 책이 <strong>Kevin P. Murphy</strong> 의 <strong><a href="https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020">Machine Learning - A Probabilistic Perspective</a></strong> 이다. 하루에 한 챕터씩 읽자고 배짱있게 주문했던 책이었으나, 구매한지 약 10달이 지난 지금 아직 Ch2도 못 끝냈다.</p>
+
+<center><img src="https://jkeun.github.io/images/2017-03-06-ml-1-1-introduction-1.jpg" width="300" /></center>
+
+<p>그래서 오늘부터 딱딱해진 머리를 다시 말랑말랑하게 하는 작업을 하려한다. 책은 총 28챕터로 각 대주제 챕터에는 최소 4개에서 최대 8개의 작은 소주제 챕터로 구성되어 있다. 소주제가 평균 6개라 가정한다면 총 168개의 챕터가 있다는 말이다. 일주일에 최소 1챕터라도 쓰는게 목표인데 이 책을 모두 정리하여 글쓰기까지 약 168주 ( = 168 / 52 = 3.23년 )가 걸리겠다. 그래도 시작이 반이다 하지 않는가.</p>
+
+<hr />
+<h2 id="11-machine-learning-what-and-why">1.1 Machine learning: what and why?</h2>
+<center><mark>"We are drowning in information and starving for knowledge. - John Naisbitt."</mark></center>
+<p><br /></p>
+
+<p>우리는 빅데이터 시대에 들어섰다. 예를 들면 현재 약 1 trillion (1조) web pages 가 있고 (2008년 기준), 유투브에는 매 초 한 시간의 동영상이 업로드 되며, 사람의 1000개의 유전체는 <script type="math/tex">3.8 \times 10^9</script> 짝의 길이를 가진다.</p>
+
+<p><strong>Machine learning</strong>은 이러한 데이터의 홍수에서 automated methods of data analysis를 말한다. 특히 우리는 machine learning을 데이터에서 자동으로 패턴을 감지하고, 미래의 데이터를 예측하기 위해 밝혀지지 않은 패턴을 사용하고, 또는 불확실성 아래 어떠한 의사결정을 수행하기 위한 일련의 방법론 (a set of methods) 이라 정의한다.</p>
+
+<p>본 책에서 주요 관점은 <strong>Probability theory (확률론)</strong>이 문제를 풀기 위한 가장 좋은 방법이라는 것이다. Probability theory 는 불확실성을 포함한 어떠한 문제에서건 적용이 가능하다. 머신러닝에서 불확실성은 다양한 형태로 나타난다: 주어진 과거 데이터로부터 무엇이 가장 미래를 잘 예측하는가? 무엇이 데이터를 가장 잘 설명하는 최적의 모델인가? 어떠한 측정법을 수행해야 하는가? 등. 확률론적 머신러닝 접근법은 통계학 분야와 아주 밀접하게 관계되어 있다. 단지 emphasis and terminology (강조점과 용어들)만 미세하게 다를 뿐이다.</p>
+
+<p>앞으로 우리는 다양한 데이터와 업무에 맞는 다양한 확률론적 모형들을 배울 것이다. 또한 이러한 모형들을 사용하고 학습시키는 다양한 알고리즘들도 배울 것이다. 목표는 확률론적 모델링과 추론에 대한 통합된 시각을 갖는 것이라 말할 수 있다. 비록 우리는 어마어마한 데이터셋을 다루는 방봅론에 대한 computational efficiency 에 주의를 기울일 테지만, 그것들은 다른 책에서 더 잘 다뤄줄 것이다.</p>
+
+<p>그러나 우리가 중요하게 봐야할 것은 그렇게 어마어마한 데이터셋을 다룰지라도, 우리가 관심을 가지는 the effective number of data points 는 꽤나 작다는 것이다. 사실 다양한 도메인을 거친 데이터는 <strong>long tail</strong>이라 불리우는 영역을 내보인다. words와 같이 작은 것들은 아주 공통적이지만, 대부분의 모든 것들은 아주 생소한 것들을 의믜한다(Pareto 법칙). 이것은 우리가 이 책에서 다루는 small samples sizes로부터 일반화 되어진 핵심 통계학적 이슈는 빅데이터 분야에서 아주 밀접하게 관계되 있다는 것을 의미한다.</p>
+
+<hr />
+<h3 id="111-types-of-machine-learning">1.1.1 Types of machine learning</h3>
+
+<p>머신러닝은 대게 두 종류의 주요 타입으로 나뉜다.</p>
+
+<p>첫번째, <strong>predictive</strong> or <strong>supervised learning</strong> approach. 목표는 입력 데이터 <script type="math/tex">X</script>와 출력 데이터 <script type="math/tex">y</script>의 mapping을 학습하는 것이다. 그리고 입/출력 데이터는 라벨링이 되어져 있으며 <script type="math/tex">D = \{(X_i, y_i)\}^N</script> 로 표현할 수 있다. 여기서 <script type="math/tex">D</script> 는 <strong>training set</strong>이라 불리며, <script type="math/tex">N</script> 은 number of training examples 이다.</p>
+
+<p>training input <script type="math/tex">X_i</script> 는 <script type="math/tex">D</script>-dimensional (<script type="math/tex">D</script>-차원)로 이뤄진 벡터이다. 가장 간단한 예로 사람의 키와 몸무게를 생각하면 된다. 그리고 이를 <strong>features, attributes</strong> or <strong>covariates</strong> 라 부른다. 그러나 일반적으로 <script type="math/tex">X_i</script> 는 더 복잡한 구조의 object가 되곤 하는데, 예를 들어 이미지, 문장, 이메일 주소, 시계열 자료, 분자 모양, 그래프 등으로도 나타낼 수 있다.</p>
+
+<p>output or <strong>response variable</strong> 도 input 데이터와 비슷하게 원칙적으로는 아무 값이나 될 수 있으나, 거의 대부분의 방법론들은 <script type="math/tex">y_i</script> 가 유한한 범위의 <strong>categorical</strong> or <strong>nominal</strong> variable 이라고 가정한다. <script type="math/tex">y_i \in \{1, \dots, C\}</script> (such as male or female), or that <script type="math/tex">y_i</script> is a real-valued scalar (such as income level) <script type="math/tex">y_i</script>가 categorical 변수라면, <strong>classification</strong> or <strong>pattern recognition</strong> 문제가 되고, <script type="math/tex">y_i</script>가 real-valued 변수라면, <strong>regression</strong> 문제가 된다. 또 다른 변수에 대해 <strong>ordinal regression</strong> 문제가 있는데, 이는 <script type="math/tex">y</script>의 라벨 공간이 A-F 학점과 같이 순서에 의한 값일 경우이다 (ordinal-valued).</p>
+
+<p>머신러닝의 두번째 주요 타입은 <strong>descriptive</strong> or <strong>unsupervised learning</strong> approach이다. 오로지 input 데이터만 가진다, <script type="math/tex">D = \{X_i\}^N</script>, 그리고 목표는 데이터 속에서 “interesting patterns”를 찾는 것이다. 이것은 때때로 <strong>knowledge discovery</strong>라고도 불린다. <del>이것은 상대적으로 보다 덜 정의된 문제이며</del>, 우리가 아직 이러한 종류의 패턴에 대해서 밝혀진게 많이 없어 명확한 error metric 도 없는 상황이다. (우리가 예측값을 주어진 관측값(<script type="math/tex">y</script>)과 비교하는 방법을 쓰는 supervised learning 과 다르게)</p>
+
+<p>마지막으로 세번째 타입은 <del>다소 덜 사용되는</del>  <strong>reinforcement learning(강화학습)</strong> 이다. 이것은 적절한 reward와 punishment가 주어진 상황에서 어떻게 결정하고 행동할지에 대한 학습에 유용하다. 그러나 불행하게도, RL은 이 책에선 다루지 않는다.</p>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jkeun.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jaekeun.park.7"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+    <a href="https://github.com/JKeun"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+
+    
+    <a href="https://www.linkedin.com/in/jay-park-84133b113"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+    
+    <a href="mailto:jkeun1224@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jay Park. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>
