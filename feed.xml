@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>JAY</title>
-    <link>https://jkeun.github.io</link>
-    <atom:link href="https://jkeun.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>ML 1 Introduction - 1.1 Machine learning: what and why?</title>
         <description>&lt;p&gt;머신러닝을 본격적으로 배운지 벌써 1년이 되어 간다. 짧다면 짧은 3개월이란 시간 동안 미친듯이 배우고, 소화하려고 노력했었다. 그리고 배움을 증명하고자 나에게 주는 훈장처럼 산 책이 &lt;strong&gt;Kevin P. Murphy&lt;/strong&gt; 의 &lt;strong&gt;&lt;a href=&quot;https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020&quot;&gt;Machine Learning - A Probabilistic Perspective&lt;/a&gt;&lt;/strong&gt; 이다. 하루에 한 챕터씩 읽자고 배짱있게 주문했던 책이었으나, 구매한지 약 10달이 지난 지금 아직 Ch2도 못 끝냈다.&lt;/p&gt;
 
-&lt;center&gt;&lt;img src=&quot;https://jkeun.github.io/images/2017-03-06-ml-1-1-introduction-1.jpg&quot; width=&quot;300&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&quot;http://localhost:4000/images/2017-03-06-ml-1-1-introduction-1.jpg&quot; width=&quot;300&quot; /&gt;&lt;/center&gt;
 
 &lt;p&gt;그래서 오늘부터 딱딱해진 머리를 다시 말랑말랑하게 하는 작업을 하려한다. 책은 총 28챕터로 각 대주제 챕터에는 최소 4개에서 최대 8개의 작은 소주제 챕터로 구성되어 있다. 소주제가 평균 6개라 가정한다면 총 168개의 챕터가 있다는 말이다. 일주일에 최소 1챕터라도 쓰는게 목표인데 이 책을 모두 정리하여 글쓰기까지 약 168주 ( = 168 / 52 = 3.23년 )가 걸리겠다. 그래도 시작이 반이다 하지 않는가.&lt;/p&gt;
 
@@ -44,8 +44,8 @@
 &lt;p&gt;마지막으로 세번째 타입은 &lt;del&gt;다소 덜 사용되는&lt;/del&gt;  &lt;strong&gt;reinforcement learning(강화학습)&lt;/strong&gt; 이다. 이것은 적절한 reward와 punishment가 주어진 상황에서 어떻게 결정하고 행동할지에 대한 학습에 유용하다. 그러나 불행하게도, RL은 이 책에선 다루지 않는다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Mar 2017 00:00:00 +0900</pubDate>
-        <link>https://jkeun.github.io/2017-03-06/ml-1-1-machine-learning-what-why/</link>
-        <guid isPermaLink="true">https://jkeun.github.io/2017-03-06/ml-1-1-machine-learning-what-why/</guid>
+        <link>http://localhost:4000/2017-03-06/ml-1-1-machine-learning-what-why/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-03-06/ml-1-1-machine-learning-what-why/</guid>
       </item>
     
   </channel>
