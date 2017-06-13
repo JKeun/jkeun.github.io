@@ -6,84 +6,48 @@
     <atom:link href="https://jkeun.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>ML 1.2 Supervised learning</title>
-        <description>&lt;h3 id=&quot;12-supervised-learning&quot;&gt;1.2 Supervised learning&lt;/h3&gt;
-&lt;p&gt;ML 에서 가장 광범위하게 사용되는 Supervised Learning에 대해서 알아보자.&lt;/p&gt;
-
-&lt;h4 id=&quot;121-classification&quot;&gt;1.2.1 Classification&lt;/h4&gt;
-&lt;p&gt;Classification 의 목표는 inputs &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 에서 outputs &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 로의 mapping 을 학습시키는 것이다. &lt;script type=&quot;math/tex&quot;&gt;y \in \{ 1, \dots , C\}&lt;/script&gt; 이고, &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 는 classes 의 개수이다. 만약 &lt;script type=&quot;math/tex&quot;&gt;C = 2&lt;/script&gt; 라면, &lt;strong&gt;binary classification&lt;/strong&gt; (이 경우 &lt;script type=&quot;math/tex&quot;&gt;y \in \{ 0, 1 \}&lt;/script&gt;), 만약 &lt;script type=&quot;math/tex&quot;&gt;C &gt; 2&lt;/script&gt; 이면 &lt;strong&gt;multi classification&lt;/strong&gt;이라 부른다. 또 만약 클래스의 라벨이 not mutually exclusive 하다면 (예를들어 한 사람을 “키가크고 힘이세다” 라고 분류했다면), &lt;strong&gt;multi-label classification&lt;/strong&gt; 이라고 부른다. (&lt;strong&gt;multiple output model&lt;/strong&gt; 이라고도 함). 보통 우리가 “classification” 이란 용어를 쓸 때는 multiclass classification with a single output 임을 가정한다.&lt;/p&gt;
-
-&lt;p&gt;우리는 흔히 문제를 formalize (형상화) 하는 방법으로 &lt;strong&gt;function approximation&lt;/strong&gt; 을 한다. 알지 못하는 function &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 에 대해 &lt;script type=&quot;math/tex&quot;&gt;y = f(X)&lt;/script&gt; 로 식을 만들고, 라벨링 되어있는 training set 으로 function &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 를 추정하기 위해 학습하는 것이 목표라 할 수 있다. 그리고 나서 &lt;script type=&quot;math/tex&quot;&gt;\hat{y} = \hat{f(X)}&lt;/script&gt; 을 사용하여 예측을 하는 것이다. 우리의 주 목표는 novel inputs (미지의 데이터) 로부터 예측을 하는 것인데, 이는 학습데이터 외에 우리가 한번도 보지 못했던 데이터를 의미한다. (이것을 &lt;strong&gt;generalization&lt;/strong&gt;이라고 부른다). 만약 training set 에 대응되는 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 값을 예측하는건 그냥 학습데이터에서 답을 찾으면 되는 것이므로 의미없다.&lt;/p&gt;
-
-&lt;h5 id=&quot;1211-example&quot;&gt;1.2.1.1 Example&lt;/h5&gt;
-&lt;center&gt;&lt;img src=&quot;https://jkeun.github.io/images/2017-03-08-ml-1-2-supervised-learning-1.png&quot; width=&quot;700&quot; /&gt;&lt;/center&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Figure 1.1&lt;/strong&gt; Left: 라벨링 된 컬러 모양들의 training examples, 그리고 3개의 unlabeled test cases. &lt;br /&gt;
-Right: &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; 형태의 training data. row &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; 는 feature vector &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt;를 표현한다. 마지막 colum Label 은 &lt;script type=&quot;math/tex&quot;&gt;y_i \in \{0, 1\}&lt;/script&gt;이다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;위의 그림 Figure 1.1(a) 를 보면, 0과 1로 라벨링 된 two classes of object 를 볼 수 있다. 여기서 inputs 은 colored shapes 이며, &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt; 개의 features들로 구성된  &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; matrix &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 이다. (Figure 1.1(b)) input feature &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 는 discrete (이산형) 일 수도, continuous (연속형) 일 수도 있으며, 둘 다일 수도 있다.&lt;/p&gt;
-
-&lt;p&gt;Figure 1.1 에서 test set 에는 파란 초승달, 노란 원 그리고 파란 화살표가 있다. 이들 모두 이전에는 보지 못했던 조합이다. (학습데이터에 똑같은 것이 없다). 그러므로 우리는 학습데이터를 뛰어넘어 &lt;strong&gt;generalize&lt;/strong&gt; 를 할 필요가 있다. 합리적인 추측을 한다면 파란 초승달은 &lt;script type=&quot;math/tex&quot;&gt;y=1&lt;/script&gt;이 되어야 한다. 왜냐하면 모든 파란색 모양들은 학습데이터에서 라벨링이 1이기 때문이다. 노란 원은 분류하기 좀 까다로운데, 어떤 노란색 모양들은 &lt;script type=&quot;math/tex&quot;&gt;y=1&lt;/script&gt; 이고, 또 어떤 것들은 &lt;script type=&quot;math/tex&quot;&gt;y=0&lt;/script&gt; 이기 때문이다. 게다가 어떤 원 모양들은 &lt;script type=&quot;math/tex&quot;&gt;y=1&lt;/script&gt; 이며 &lt;script type=&quot;math/tex&quot;&gt;y=0&lt;/script&gt; 이기도 한다. 결론적으로 노란색 원의 경우 올바르게 라벨링하기 어렵고 그 기준이 명확하지 않다. 파란 화살표도 비슷한 문제를 가진다.&lt;/p&gt;
-
-&lt;h5 id=&quot;1212-the-need-for-probabilistic-predictions&quot;&gt;1.2.1.2 The need for probabilistic predictions&lt;/h5&gt;
-&lt;p&gt;위의 노란 원 처럼 모호한 케이스를 다루기 위해 우리는 확률이론으로 돌아가야 한다.&lt;/p&gt;
-
-&lt;p&gt;우리는 가능한 라벨에 대한 확률 분포를 input vector &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 와 training set &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt; 를 사용해 &lt;script type=&quot;math/tex&quot;&gt;p(y \vert X, D)&lt;/script&gt; 로 표현할 수 있다. 일반적으로 카테고리값 &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 에 의해 벡터의 길이가 정해진다. (만약 클래스가 2개 뿐이라면 &lt;script type=&quot;math/tex&quot;&gt;p(y=1 \vert X, D)&lt;/script&gt; 하나의 값으로 충분히 표현할 수 있다. 왜냐하면 &lt;script type=&quot;math/tex&quot;&gt;p(y=1 \vert X, D) + p(y=0 \vert X, D) = 1&lt;/script&gt; 이기 때문이다.) 이 표기법에서 주의해야 할 부분은 test input &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;과 training set &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt; 의 조건부 확률이란 점이다. (conditioning bar &lt;script type=&quot;math/tex&quot;&gt;\vert&lt;/script&gt; 로 표시한다.) 우리는 또한 예측을 하기 위해 모델(&lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt;)도 &lt;script type=&quot;math/tex&quot;&gt;p(y \vert X, D, M)&lt;/script&gt; 처럼 조건부 term 에 추가하여야 하는데, 보통 문맥에서 모델이 명확하게 보이는 경우는 생략한다.&lt;/p&gt;
-
-&lt;p&gt;우리는 주어진 probabilistic output 을 바탕으로, 항상 “true label” 에 대한 “best guess” 를 계산할 수 있다.&lt;/p&gt;
-
-&lt;center&gt;$$\hat{y} = \hat{f(X)} = \overset{C}{\underset{c=1}{\text{argmax}}}~p(y=c \vert X, D)$$&lt;/center&gt;
-
-&lt;p&gt;이것은 distribution &lt;script type=&quot;math/tex&quot;&gt;p(y \vert X, D)&lt;/script&gt; 의 &lt;strong&gt;mode&lt;/strong&gt; 이며, 클래스 라벨 중 가장 확률이 높은 것을 선택한다는 의미이다. &lt;strong&gt;MAP estimate&lt;/strong&gt; (MAP; &lt;strong&gt;maximum a posteriori&lt;/strong&gt;) 로 잘  알려져 있다.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 08 Mar 2017 00:00:00 +0900</pubDate>
-        <link>https://jkeun.github.io/2017-03-08/ml-1-2-supervised-learning/</link>
-        <guid isPermaLink="true">https://jkeun.github.io/2017-03-08/ml-1-2-supervised-learning/</guid>
-      </item>
-    
-      <item>
         <title>ML 1.1 Machine learning: what and why?</title>
         <description>&lt;p&gt;머신러닝을 본격적으로 배운지 벌써 1년이 되어 간다. 짧다면 짧은 3개월이란 시간 동안 미친듯이 배우고, 소화하려고 노력했었다. 그리고 배움을 증명하고자 나에게 주는 훈장처럼 산 책이 &lt;strong&gt;Kevin P. Murphy&lt;/strong&gt; 의 &lt;strong&gt;&lt;a href=&quot;https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020&quot;&gt;Machine Learning - A Probabilistic Perspective&lt;/a&gt;&lt;/strong&gt; 이다. 하루에 한 챕터씩 읽자고 배짱있게 주문했던 책이었으나, 구매한지 약 10달이 지난 지금 아직 Ch2도 못 끝냈다.&lt;/p&gt;
 
-&lt;center&gt;&lt;img src=&quot;https://jkeun.github.io/images/2017-03-06-ml-1-1-introduction-1.jpg&quot; width=&quot;300&quot; /&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&quot;/images/2017-03-06-ml-1-1-introduction-1.jpg&quot; /&gt;&lt;/center&gt;
 
 &lt;p&gt;그래서 오늘부터 딱딱해진 머리를 다시 말랑말랑하게 하는 작업을 하려한다. 책은 총 28챕터로 각 대주제 챕터에는 최소 4개에서 최대 8개의 작은 소주제 챕터로 구성되어 있다. 소주제가 평균 6개라 가정한다면 총 168개의 챕터가 있다는 말이다. 일주일에 최소 1챕터라도 쓰는게 목표인데 이 책을 모두 정리하여 글쓰기까지 약 168주 ( = 168 / 52 = 3.23년 )가 걸리겠다. 그래도 시작이 반이다 하지 않는가.&lt;/p&gt;
 
 &lt;hr /&gt;
+
 &lt;h2 id=&quot;11-machine-learning-what-and-why&quot;&gt;1.1 Machine learning: what and why?&lt;/h2&gt;
+
 &lt;center&gt;&lt;mark&gt;&quot;We are drowning in information and starving for knowledge. - John Naisbitt.&quot;&lt;/mark&gt;&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;우리는 빅데이터 시대에 들어섰다. 그 예로 현재 약 1 trillion (1조) web pages 가 존재하고 있고, (2008년 기준) 유투브에는 매 초 한 시간의 동영상이 업로드 되며, 사람의 1000개의 유전체는 &lt;script type=&quot;math/tex&quot;&gt;3.8 \times 10^9&lt;/script&gt; 짝의 길이를 가지는 데이터로 구성되어 있다.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Machine learning&lt;/strong&gt;은 이러한 데이터의 홍수에서 automated methods of data analysis를 의미한다. 특히 우리는 machine learning을 데이터 속에서 자동으로 패턴을 감지하고, 미래의 데이터를 예측하기 위해 밝혀지지 않은 패턴을 사용하고, 또는 불확실성 아래 어떠한 의사결정을 수행하기 위한 일련의 방법론 (a set of methods) 이라 정의한다.&lt;/p&gt;
 
-&lt;p&gt;본 책에서 주요 관점은 &lt;strong&gt;Probability theory (확률론)&lt;/strong&gt;이 문제를 풀기 위한 가장 좋은 방법이라는 것이다. Probability theory 는 불확실성을 포함한 문제에서 언제든지  적용가능하다. 머신러닝에서 불확실성은 다양한 형태로 나타난다: 주어진 과거 데이터로부터 무엇이 가장 미래를 잘 예측하는가? 무엇이 데이터를 가장 잘 설명하는 최적의 모델인가? 어떠한 측정법을 수행해야 하는가? 등. 확률론적 머신러닝 접근법은 통계학 분야와 아주 밀접하게 관계되어 있다. 단지 emphasis and terminology (강조점과 용어들)만 미세하게 다를 뿐이다.&lt;/p&gt;
+&lt;p&gt;본 책에서 주요 관점은 &lt;strong&gt;Probability theory (확률론)&lt;/strong&gt;이 문제를 풀기 위한 가장 좋은 방법이라는 것이다. Probability theory 는 불확실성을 포함한 문제에서 언제든지 적용가능하다. 머신러닝에서 불확실성은 다양한 형태로 나타난다: 주어진 과거 데이터로부터 무엇이 가장 미래를 잘 예측하는가? 무엇이 데이터를 가장 잘 설명하는 최적의 모델인가? 어떠한 측정법을 수행해야 하는가? 등. 확률론적 머신러닝 접근법은 통계학 분야와 아주 밀접하게 관계되어 있다. 단지 emphasis and terminology (강조점과 용어들)만 미세하게 다를 뿐이다.&lt;/p&gt;
 
 &lt;p&gt;앞으로 우리는 다양한 데이터와 업무에 맞는 다양한 확률론적 모형들을 배울 것이며, 또한 이러한 모형들을 사용하고 학습시키는 다양한 알고리즘들도 배울 것이다. 최종적인 목표는 확률론적 모델링과 추론에 대한 통합된 시각을 갖는 것이라 말할 수 있다. 비록 대부분의 사람들은 어마어마한 데이터셋을 다루는 방법론과 computational efficiency 에 주의를 기울일 테지만, 그것들은 다른 책에서 더 잘 다뤄줄 것이므로 이 책에선 생략한다.&lt;/p&gt;
 
 &lt;p&gt;또한 우리가 중요하게 봐야할 것은 그렇게 어마어마한 데이터셋을 다룰지라도, 우리가 관심을 가지는 the effective number of data points 는 꽤나 작다는 것이다. 사실 다양한 도메인을 거친 데이터는 &lt;strong&gt;long tail&lt;/strong&gt;이라 불리우는 영역을 내보인다. words와 같이 작은 것들은 아주 공통적이지만, 대부분의 모든 것들은 아주 생소한 것들을 의믜한다(Pareto 법칙). 이것은 이 책에서 다루는 small samples sizes로부터 일반화 되어진 핵심 통계학적 이슈는 빅데이터 분야와 아주 밀접하게 관계되있다는 것을 의미한다.&lt;/p&gt;
 
 &lt;hr /&gt;
+
 &lt;h3 id=&quot;111-types-of-machine-learning&quot;&gt;1.1.1 Types of machine learning&lt;/h3&gt;
 
 &lt;p&gt;머신러닝은 대게 두 종류의 주요 타입으로 나뉜다.&lt;/p&gt;
 
-&lt;p&gt;첫번째, &lt;strong&gt;predictive&lt;/strong&gt; or &lt;strong&gt;supervised learning&lt;/strong&gt; approach. 목표는 입력 데이터 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;와 출력 데이터 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;의 mapping을 학습하는 것이다. 그리고 입/출력 데이터는 라벨링이 되어져 있으며 &lt;script type=&quot;math/tex&quot;&gt;D = \{(X_i, y_i)\}^N&lt;/script&gt; 로 표현할 수 있다. 여기서 &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt; 는 &lt;strong&gt;training set&lt;/strong&gt;이라 불리며, &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; 은 number of training examples 이다.&lt;/p&gt;
+&lt;p&gt;첫번째, &lt;strong&gt;predictive&lt;/strong&gt; or &lt;strong&gt;supervised learning&lt;/strong&gt; approach. 목표는 입력 데이터 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 와 출력 데이터 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 의 mapping을 학습하는 것이다. 그리고 입/출력 데이터는 라벨링이 되어져 있으며 &lt;script type=&quot;math/tex&quot;&gt;D = \{(X_i, y_i)\}^N&lt;/script&gt; 로 표현할 수 있다. 여기서 &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt; 는 &lt;strong&gt;training set&lt;/strong&gt;이라 불리며, &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; 은 number of training examples 이다.&lt;/p&gt;
 
-&lt;p&gt;training input &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; 는 &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;-dimensional (&lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;-차원)로 이뤄진 벡터이다. 가장 간단한 예로 사람의 키와 몸무게를 생각하면 된다. 그리고 이를 &lt;strong&gt;features, attributes&lt;/strong&gt; or &lt;strong&gt;covariates&lt;/strong&gt; 라 부른다. 그러나 일반적으로 &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; 는 더 복잡한 구조의 object가 되곤 하는데, 예를 들어 이미지, 문장, 이메일 주소, 시계열 자료, 분자 모양, 그래프 등으로도 나타낼 수 있다.&lt;/p&gt;
+&lt;p&gt;training input &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; 는 &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;-dimensional ( &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;-차원 )로 이뤄진 벡터이다. 가장 간단한 예로 사람의 키와 몸무게를 생각하면 된다. 그리고 이를 &lt;strong&gt;features, attributes&lt;/strong&gt; or &lt;strong&gt;covariates&lt;/strong&gt; 라 부른다. 그러나 일반적으로 &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; 는 더 복잡한 구조의 object가 되곤 하는데, 예를 들어 이미지, 문장, 이메일 주소, 시계열 자료, 분자 모양, 그래프 등으로도 나타낼 수 있다.&lt;/p&gt;
 
-&lt;p&gt;output or &lt;strong&gt;response variable&lt;/strong&gt; 도 input 데이터와 비슷하게 원칙적으로는 아무 값이나 될 수 있으나, 거의 대부분의 방법론들은 &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt; 가 유한한 범위의 &lt;strong&gt;categorical&lt;/strong&gt; or &lt;strong&gt;nominal&lt;/strong&gt; variable 이라고 가정한다. &lt;script type=&quot;math/tex&quot;&gt;y_i \in \{1, \dots, C\}&lt;/script&gt; (such as male or female), or that &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt; is a real-valued scalar (such as income level) &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt;가 categorical 변수라면, &lt;strong&gt;classification&lt;/strong&gt; or &lt;strong&gt;pattern recognition&lt;/strong&gt; 문제가 되고, &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt;가 real-valued 변수라면, &lt;strong&gt;regression&lt;/strong&gt; 문제가 된다. 또 다른 변수에 대해 &lt;strong&gt;ordinal regression&lt;/strong&gt; 문제가 있는데, 이는 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;의 라벨 공간이 A-F 학점과 같이 순서에 의한 값일 경우이다 (ordinal-valued).&lt;/p&gt;
+&lt;p&gt;output or &lt;strong&gt;response variable&lt;/strong&gt; 도 input 데이터와 비슷하게 원칙적으로는 아무 값이나 될 수 있으나, 거의 대부분의 방법론들은 &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt; 가 유한한 범위의 &lt;strong&gt;categorical&lt;/strong&gt; or &lt;strong&gt;nominal&lt;/strong&gt; variable 이라고 가정한다. &lt;script type=&quot;math/tex&quot;&gt;y_i \in \{1, \dots, C\}&lt;/script&gt; (such as male or female), or that &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt; is a real-valued scalar (such as income level) &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt;가 categorical 변수라면, &lt;strong&gt;classification&lt;/strong&gt; or &lt;strong&gt;pattern recognition&lt;/strong&gt; 문제가 되고, &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt; 가 real-valued 변수라면, &lt;strong&gt;regression&lt;/strong&gt; 문제가 된다. 또 다른 변수에 대해 &lt;strong&gt;ordinal regression&lt;/strong&gt; 문제가 있는데, 이는 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;의 라벨 공간이 A-F 학점과 같이 순서에 의한 값일 경우이다 (ordinal-valued).&lt;/p&gt;
 
-&lt;p&gt;머신러닝의 두번째 주요 타입은 &lt;strong&gt;descriptive&lt;/strong&gt; or &lt;strong&gt;unsupervised learning&lt;/strong&gt; approach이다. 오로지 input 데이터만 가진다, &lt;script type=&quot;math/tex&quot;&gt;D = \{X_i\}^N&lt;/script&gt;, 그리고 목표는 데이터 속에서 “interesting patterns”를 찾는 것이다. 이것은 때때로 &lt;strong&gt;knowledge discovery&lt;/strong&gt;라고도 불린다. &lt;del&gt;이것은 상대적으로 보다 덜 정의된 문제이며&lt;/del&gt;, 우리가 아직 이러한 종류의 패턴에 대해서 밝혀진게 많이 없어 명확한 error metric 도 없는 상황이다. (우리가 예측값을 주어진 관측값(&lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;)과 비교하는 방법을 쓰는 supervised learning 과 다르게)&lt;/p&gt;
+&lt;p&gt;머신러닝의 두번째 주요 타입은 &lt;strong&gt;descriptive&lt;/strong&gt; or &lt;strong&gt;unsupervised learning&lt;/strong&gt; approach이다. 오로지 input 데이터만 가진다, &lt;script type=&quot;math/tex&quot;&gt;D = \{X_i\}^N&lt;/script&gt;, 그리고 목표는 데이터 속에서 “interesting patterns”를 찾는 것이다. 이것은 때때로 &lt;strong&gt;knowledge discovery&lt;/strong&gt;라고도 불린다. &lt;del&gt;이것은 상대적으로 보다 덜 정의된 문제이며&lt;/del&gt;, 우리가 아직 이러한 종류의 패턴에 대해서 밝혀진게 많이 없어 명확한 error metric 도 없는 상황이다. (우리가 예측값을 주어진 관측값( &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; )과 비교하는 방법을 쓰는 supervised learning 과 다르게)&lt;/p&gt;
 
-&lt;p&gt;마지막으로 세번째 타입은 &lt;del&gt;다소 덜 사용되는&lt;/del&gt;  &lt;strong&gt;reinforcement learning(강화학습)&lt;/strong&gt; 이다. 이것은 적절한 reward와 punishment가 주어진 상황에서 어떻게 결정하고 행동할지에 대한 학습에 유용하다. 그러나 불행하게도, RL은 이 책에선 다루지 않는다.&lt;/p&gt;
+&lt;p&gt;마지막으로 세번째 타입은 &lt;del&gt;다소 덜 사용되는&lt;/del&gt; &lt;strong&gt;reinforcement learning(강화학습)&lt;/strong&gt; 이다. 이것은 적절한 reward와 punishment가 주어진 상황에서 어떻게 결정하고 행동할지에 대한 학습에 유용하다. 그러나 불행하게도, RL은 이 책에선 다루지 않는다.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 06 Mar 2017 00:00:00 +0900</pubDate>
-        <link>https://jkeun.github.io/2017-03-06/ml-1-1-machine-learning-what-why/</link>
-        <guid isPermaLink="true">https://jkeun.github.io/2017-03-06/ml-1-1-machine-learning-what-why/</guid>
+        <pubDate>Tue, 13 Jun 2017 00:00:00 +0900</pubDate>
+        <link>https://jkeun.github.io/2017-06-13/ml-1-1-machine-learning-what-why/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-06-13/ml-1-1-machine-learning-what-why/</guid>
       </item>
     
   </channel>
