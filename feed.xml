@@ -14,9 +14,9 @@
 이 원칙에 의거해 ( 분석자마다 원칙은 다를 수 있다. 적어도 나는 이러한 원칙을 항상 마음에 새기고 있을 뿐이다. ) 분석을 하기 전 고려해야할 사항들은 아래와 같을 것이다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;How many features do you have ( to build your model ) ?&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;How much score do you want ( to explain your model ) ?&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;How can you test your model ( for generalization )&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;How many features do you have ? ( to build your model )&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;How much score do you want ? ( to explain your model )&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;How can you test your model ? ( for generalization )&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
