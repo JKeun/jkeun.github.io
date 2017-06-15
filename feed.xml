@@ -6,6 +6,80 @@
     <atom:link href="https://jkeun.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Project of Toyota Corolla Dataset ( 1 )</title>
+        <description>&lt;center&gt;&lt;mark&gt;&quot;Simple is the Best&quot;&lt;/mark&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;“경제성의 원리”라고도 불리우는 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%98%A4%EC%BB%B4%EC%9D%98_%EB%A9%B4%EB%8F%84%EB%82%A0&quot;&gt;오컴의면도날&lt;/a&gt;과 같이 수학적 모델링도 마찬가지이다. 어떤 현상을 설명할 때 불필요한 가정을 해서는 안 된다는 것. 고로 똑같은 성능을 내는 모델이라면, 단순하면 단순할 수록 좋다.
+이 원칙에 의거해 ( 분석자마다 원칙은 다를 수 있다. 적어도 나는 이러한 원칙을 항상 마음에 새기고 있을 뿐이다. ) 분석을 하기 전 고려해야할 것들은 아래와 같을 것이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;How many features do you have ( to build your model ) ?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;How much score do you want ( to explain your model ) ?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;How can you test your model ( for generalization )&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h4 id=&quot;workflow-of-regression&quot;&gt;Workflow of Regression&lt;/h4&gt;
+
+&lt;h5 id=&quot;define-dataset&quot;&gt;Define Dataset&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sample set&lt;/li&gt;
+  &lt;li&gt;Train set&lt;/li&gt;
+  &lt;li&gt;Validation set&lt;/li&gt;
+  &lt;li&gt;Test set&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;define-features&quot;&gt;Define Features&lt;/h5&gt;
+&lt;center&gt;&lt;img src=&quot;/images/2017-06-15-project-regression-toyota-corolla-1.png&quot; /&gt;&lt;/center&gt;
+
+&lt;h5 id=&quot;explore-features&quot;&gt;Explore Features&lt;/h5&gt;
+&lt;p&gt;회귀분석 모형에 사용할 변수를 찾아가는 과정. &lt;br /&gt; 
+주로 시각화 + Descriptive statistics(기술통계)를 통해 갖고있는 데이터 분포 및 특징(평균, 최빈값, 중앙값, 분산, 최대값, 최소값 등)을 파악한다. 이를 통해 모형을 설명 할 변수들의 중요도를 대략적으로 파악 할 수 있다. 또한 수많은 변수들 중에서 회귀모형에 사용 할 초기 변수들을 선택하는데 어느정도 기준을 세울 수 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각각의 변수 별 경험적 결과가 어떠한지 정의하기&lt;/li&gt;
+  &lt;li&gt;분포 파악하기&lt;/li&gt;
+  &lt;li&gt;real value : 종속변수 ( &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; ) 와 설명변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; ) 간의 Scatter plot ( 또는 Pair plot ) + 상관계수 파악을 통해 상관정도를 가늠&lt;/li&gt;
+  &lt;li&gt;categorical value : 설명변수의 등급별 종속변수 값의 Box plot + Paired Sample t-test 를 통해 유의한 차이가 있는지 파악&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;feature-selection--step-wise-methods-&quot;&gt;Feature Selection ( Step-wise Methods )&lt;/h5&gt;
+
+&lt;h5 id=&quot;outliers-and-influential-observations&quot;&gt;Outliers and Influential Observations&lt;/h5&gt;
+&lt;p&gt;이상치 ( Outlier ) 는 데이터 분포에서 극단에 있는 Data point 를 말한다. 이상치가 있고, 없고에 따라 분포의 특성 ( 평균 ) 이 급격하게 움직이는데, 이러한 Data point 는 내가 갖고있는 데이터의 대표값에 나쁜 영향 ( Influential 이 강함 ) 을 주는 것이다. 반면에 대표값에 별다른 영향을 주지 않는다면 ( Inlfuence 가 약함 ) 해당 Data point 를 그대로 사용해도 무방하다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Leverage_(statistics)&quot;&gt;Leverage&lt;/a&gt; : 설명변수 &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 값에 대한 이상치 파악&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Studentized_residual&quot;&gt;( Studentized ) Residual&lt;/a&gt; : 종속변수 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 값에 대한 이상치 파악&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/DFFITS&quot;&gt;DFFITS&lt;/a&gt; : 추정치 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{y}&lt;/script&gt; ) 에 대한 영향력 평가&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Cook%27s_distance&quot;&gt;COOK’S DISTANCE&lt;/a&gt; : 회귀계수에 대한 종합적 영향력 평가&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;diagnosis-of-model-and-assumption&quot;&gt;Diagnosis of Model and Assumption&lt;/h5&gt;
+&lt;ol&gt;
+  &lt;li&gt;선형성 검토 : 독립변수에 대한 잔차를 통해 선형여부를 판단 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 를 대수변환, 지수변환 등 )&lt;/li&gt;
+  &lt;li&gt;등분산성 검토 : &lt;script type=&quot;math/tex&quot;&gt;\hat{y}&lt;/script&gt; 에 대한 잔차를 통해 등분산성 판단 ( &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 를 대수변환, 제곱근변환 등 )&lt;/li&gt;
+  &lt;li&gt;독립성 검토 : 오차항들은 서로 독립&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&quot;check-inporved-model&quot;&gt;Check Inporved Model&lt;/h5&gt;
+
+&lt;h5 id=&quot;diagnosis-of-multicollinearity&quot;&gt;Diagnosis of Multicollinearity&lt;/h5&gt;
+&lt;p&gt;독립변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; ) 들 간에 서로 상관성이 높을 경우 &lt;a href=&quot;https://en.wikipedia.org/wiki/Multicollinearity&quot;&gt;Multicollinearity ( 다중공선성 )&lt;/a&gt; 이 발생한다. 머신러닝 문제에서 Overfitting 과 비슷한 개념. 이 경우, 모델에 학습되지 않은 범위의 &lt;script type=&quot;math/tex&quot;&gt;X_new&lt;/script&gt; 데이터가 들어올 경우 굉장히 불안정한 예측값 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{y}&lt;/script&gt; ) 을 내놓는다. 모델링의 목적인 Generalization 에 위배.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Pearson_correlation_coefficient&quot;&gt;( Pearson ) 상관행렬 및 상관계수&lt;/a&gt;를 통해 독립변수간 상관성 파악&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors&quot;&gt;고유값 ( Eigen value ) &lt;/a&gt; &amp;lt; &lt;script type=&quot;math/tex&quot;&gt;30&lt;/script&gt; &amp;amp; &lt;a href=&quot;https://en.wikipedia.org/wiki/Variance_inflation_factor&quot;&gt;분산팽창계수 ( VIF; Variance Inflation Factor )&lt;/a&gt; &amp;lt; &lt;script type=&quot;math/tex&quot;&gt;10&lt;/script&gt; 검토&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&quot;final-regression-model&quot;&gt;Final Regression Model&lt;/h5&gt;
+</description>
+        <pubDate>Thu, 15 Jun 2017 00:00:00 +0900</pubDate>
+        <link>https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/</guid>
+      </item>
+    
+      <item>
         <title>ML 1.2 Supervised learning</title>
         <description>&lt;h3 id=&quot;12-supervised-learning&quot;&gt;1.2 Supervised learning&lt;/h3&gt;
 

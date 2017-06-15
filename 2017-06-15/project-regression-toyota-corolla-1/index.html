@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--
+       _             __           
+      (_)___  ____  / /____  _____
+     / / __ \/ __ \/ __/ _ \/ ___/
+    / / / / / /_/ / /_/  __(__  ) 
+ _ / /_/ /_/\____/\__/\___/____/  
+/___/ D A T A , L E A R N I N G                        
+
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project of Toyota Corolla Dataset ( 1 )</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for JAY" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Project of Toyota Corolla Dataset ( 1 ) - JAY</title>
+<meta property="og:title" content="Project of Toyota Corolla Dataset ( 1 )" />
+<meta name="description" content="Step 1. Regression Workflow" />
+<meta property="og:description" content="Step 1. Regression Workflow" />
+<link rel="canonical" href="https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/" />
+<meta property="og:url" content="https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/" />
+<meta property="og:site_name" content="JAY" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-15T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Project of Toyota Corolla Dataset ( 1 )",
+"datePublished": "2017-06-15T00:00:00+09:00",
+"description": "Step 1. Regression Workflow",
+"url": "https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85991641-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+</head>
+
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="https://jkeun.github.io">JAY</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Project of Toyota Corolla Dataset ( 1 )</div>
+  <span class="post-date">
+    <time>15 Jun 2017</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#project">
+          <span>project</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#kaggle">
+          <span>kaggle</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#regression">
+          <span>regression</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#statistics">
+          <span>statistics</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#data analysis">
+          <span>data analysis</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <center><mark>"Simple is the Best"</mark></center>
+<p><br /></p>
+
+<p>“경제성의 원리”라고도 불리우는 <a href="https://ko.wikipedia.org/wiki/%EC%98%A4%EC%BB%B4%EC%9D%98_%EB%A9%B4%EB%8F%84%EB%82%A0">오컴의면도날</a>과 같이 수학적 모델링도 마찬가지이다. 어떤 현상을 설명할 때 불필요한 가정을 해서는 안 된다는 것. 고로 똑같은 성능을 내는 모델이라면, 단순하면 단순할 수록 좋다.
+이 원칙에 의거해 ( 분석자마다 원칙은 다를 수 있다. 적어도 나는 이러한 원칙을 항상 마음에 새기고 있을 뿐이다. ) 분석을 하기 전 고려해야할 것들은 아래와 같을 것이다.</p>
+
+<ul>
+  <li><em>How many features do you have ( to build your model ) ?</em></li>
+  <li><em>How much score do you want ( to explain your model ) ?</em></li>
+  <li><em>How can you test your model ( for generalization )</em></li>
+</ul>
+
+<hr />
+<h4 id="workflow-of-regression">Workflow of Regression</h4>
+
+<h5 id="define-dataset">Define Dataset</h5>
+<ul>
+  <li>Sample set</li>
+  <li>Train set</li>
+  <li>Validation set</li>
+  <li>Test set</li>
+</ul>
+
+<h5 id="define-features">Define Features</h5>
+<center><img src="/images/2017-06-15-project-regression-toyota-corolla-1.png" /></center>
+
+<h5 id="explore-features">Explore Features</h5>
+<p>회귀분석 모형에 사용할 변수를 찾아가는 과정. <br /> 
+주로 시각화 + Descriptive statistics(기술통계)를 통해 갖고있는 데이터 분포 및 특징(평균, 최빈값, 중앙값, 분산, 최대값, 최소값 등)을 파악한다. 이를 통해 모형을 설명 할 변수들의 중요도를 대략적으로 파악 할 수 있다. 또한 수많은 변수들 중에서 회귀모형에 사용 할 초기 변수들을 선택하는데 어느정도 기준을 세울 수 있다.</p>
+
+<ul>
+  <li>각각의 변수 별 경험적 결과가 어떠한지 정의하기</li>
+  <li>분포 파악하기</li>
+  <li>real value : 종속변수 ( <script type="math/tex">y</script> ) 와 설명변수 ( <script type="math/tex">X</script> ) 간의 Scatter plot ( 또는 Pair plot ) + 상관계수 파악을 통해 상관정도를 가늠</li>
+  <li>categorical value : 설명변수의 등급별 종속변수 값의 Box plot + Paired Sample t-test 를 통해 유의한 차이가 있는지 파악</li>
+</ul>
+
+<h5 id="feature-selection--step-wise-methods-">Feature Selection ( Step-wise Methods )</h5>
+
+<h5 id="outliers-and-influential-observations">Outliers and Influential Observations</h5>
+<p>이상치 ( Outlier ) 는 데이터 분포에서 극단에 있는 Data point 를 말한다. 이상치가 있고, 없고에 따라 분포의 특성 ( 평균 ) 이 급격하게 움직이는데, 이러한 Data point 는 내가 갖고있는 데이터의 대표값에 나쁜 영향 ( Influential 이 강함 ) 을 주는 것이다. 반면에 대표값에 별다른 영향을 주지 않는다면 ( Inlfuence 가 약함 ) 해당 Data point 를 그대로 사용해도 무방하다.</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Leverage_(statistics)">Leverage</a> : 설명변수 <script type="math/tex">X</script> 값에 대한 이상치 파악</li>
+  <li><a href="https://en.wikipedia.org/wiki/Studentized_residual">( Studentized ) Residual</a> : 종속변수 <script type="math/tex">y</script> 값에 대한 이상치 파악</li>
+  <li><a href="https://en.wikipedia.org/wiki/DFFITS">DFFITS</a> : 추정치 ( <script type="math/tex">\hat{y}</script> ) 에 대한 영향력 평가</li>
+  <li><a href="https://en.wikipedia.org/wiki/Cook%27s_distance">COOK’S DISTANCE</a> : 회귀계수에 대한 종합적 영향력 평가</li>
+</ul>
+
+<h5 id="diagnosis-of-model-and-assumption">Diagnosis of Model and Assumption</h5>
+<ol>
+  <li>선형성 검토 : 독립변수에 대한 잔차를 통해 선형여부를 판단 ( <script type="math/tex">X</script> 를 대수변환, 지수변환 등 )</li>
+  <li>등분산성 검토 : <script type="math/tex">\hat{y}</script> 에 대한 잔차를 통해 등분산성 판단 ( <script type="math/tex">y</script> 를 대수변환, 제곱근변환 등 )</li>
+  <li>독립성 검토 : 오차항들은 서로 독립</li>
+</ol>
+
+<h5 id="check-inporved-model">Check Inporved Model</h5>
+
+<h5 id="diagnosis-of-multicollinearity">Diagnosis of Multicollinearity</h5>
+<p>독립변수 ( <script type="math/tex">X</script> ) 들 간에 서로 상관성이 높을 경우 <a href="https://en.wikipedia.org/wiki/Multicollinearity">Multicollinearity ( 다중공선성 )</a> 이 발생한다. 머신러닝 문제에서 Overfitting 과 비슷한 개념. 이 경우, 모델에 학습되지 않은 범위의 <script type="math/tex">X_new</script> 데이터가 들어올 경우 굉장히 불안정한 예측값 ( <script type="math/tex">\hat{y}</script> ) 을 내놓는다. 모델링의 목적인 Generalization 에 위배.</p>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">( Pearson ) 상관행렬 및 상관계수</a>를 통해 독립변수간 상관성 파악</li>
+  <li><a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">고유값 ( Eigen value ) </a> &lt; <script type="math/tex">30</script> &amp; <a href="https://en.wikipedia.org/wiki/Variance_inflation_factor">분산팽창계수 ( VIF; Variance Inflation Factor )</a> &lt; <script type="math/tex">10</script> 검토</li>
+</ul>
+
+<h5 id="final-regression-model">Final Regression Model</h5>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jkeun.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jaekeun.park.7"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+    <a href="https://github.com/JKeun"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+
+    
+    <a href="https://www.linkedin.com/in/jay-park-84133b113"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+    
+    <a href="mailto:jkeun1224@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jay Park. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>
