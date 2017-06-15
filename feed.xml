@@ -39,9 +39,12 @@
 
 &lt;ul&gt;
   &lt;li&gt;각각의 변수 별 경험적 결과가 어떠한지 정의하기&lt;/li&gt;
-  &lt;li&gt;분포 파악하기&lt;/li&gt;
-  &lt;li&gt;real value : 종속변수 ( &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; ) 와 설명변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; ) 간의 Scatter plot ( 또는 Pair plot ) + 상관계수 파악을 통해 상관정도를 가늠&lt;/li&gt;
-  &lt;li&gt;categorical value : 설명변수의 등급별 종속변수 값의 Box plot + Paired Sample t-test 를 통해 유의한 차이가 있는지 파악&lt;/li&gt;
+  &lt;li&gt;분포 파악하기
+    &lt;ul&gt;
+      &lt;li&gt;real value : 종속변수 ( &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; ) 와 설명변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; ) 간의 Scatter plot ( 또는 Pair plot ) + 상관계수 파악을 통해 상관정도를 가늠&lt;/li&gt;
+      &lt;li&gt;categorical value : 설명변수의 등급별 종속변수 값의 Box plot + Paired Sample t-test 를 통해 유의한 차이가 있는지 파악&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h5 id=&quot;feature-selection--step-wise-methods-&quot;&gt;Feature Selection ( Step-wise Methods )&lt;/h5&gt;
@@ -66,7 +69,7 @@
 &lt;h5 id=&quot;check-inporved-model&quot;&gt;Check Inporved Model&lt;/h5&gt;
 
 &lt;h5 id=&quot;diagnosis-of-multicollinearity&quot;&gt;Diagnosis of Multicollinearity&lt;/h5&gt;
-&lt;p&gt;독립변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; ) 들 간에 서로 상관성이 높을 경우 &lt;a href=&quot;https://en.wikipedia.org/wiki/Multicollinearity&quot;&gt;Multicollinearity ( 다중공선성 )&lt;/a&gt; 이 발생한다. 머신러닝 문제에서 Overfitting 과 비슷한 개념. 이 경우, 모델에 학습되지 않은 범위의 &lt;script type=&quot;math/tex&quot;&gt;X_new&lt;/script&gt; 데이터가 들어올 경우 굉장히 불안정한 예측값 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{y}&lt;/script&gt; ) 을 내놓는다. 모델링의 목적인 Generalization 에 위배.&lt;/p&gt;
+&lt;p&gt;독립변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; ) 들 간에 서로 상관성이 높을 경우 &lt;a href=&quot;https://en.wikipedia.org/wiki/Multicollinearity&quot;&gt;Multicollinearity ( 다중공선성 )&lt;/a&gt; 이 발생한다. 머신러닝 문제에서 Overfitting 과 비슷한 개념. 이 경우, 모델에 학습되지 않은 범위의 &lt;script type=&quot;math/tex&quot;&gt;X_{new}&lt;/script&gt; 데이터가 들어올 경우 굉장히 불안정한 예측값 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{y}&lt;/script&gt; ) 을 내놓는다. 모델링의 목적인 Generalization 에 위배.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Pearson_correlation_coefficient&quot;&gt;( Pearson ) 상관행렬 및 상관계수&lt;/a&gt;를 통해 독립변수간 상관성 파악&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors&quot;&gt;고유값 ( Eigen value ) &lt;/a&gt; &amp;lt; &lt;script type=&quot;math/tex&quot;&gt;30&lt;/script&gt; &amp;amp; &lt;a href=&quot;https://en.wikipedia.org/wiki/Variance_inflation_factor&quot;&gt;분산팽창계수 ( VIF; Variance Inflation Factor )&lt;/a&gt; &amp;lt; &lt;script type=&quot;math/tex&quot;&gt;10&lt;/script&gt; 검토&lt;/li&gt;
