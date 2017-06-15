@@ -11,7 +11,7 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;“경제성의 원리”라고도 불리우는 &lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%98%A4%EC%BB%B4%EC%9D%98_%EB%A9%B4%EB%8F%84%EB%82%A0&quot;&gt;오컴의면도날&lt;/a&gt;과 같이 통계학적 모델링도 마찬가지이다. 어떤 현상을 설명할 때 불필요한 가정을 해서는 안 된다는 것. 고로 똑같은 성능을 내는 모델이라면, 단순하면 단순할수록 좋다.
-이 원칙에 의거해 ( 분석자마다 원칙은 다를 수 있다. 적어도 나는 이러한 원칙을 항상 마음에 새기고 있을 뿐이다. ) 분석을 하기 전 고려해야할 것들은 아래와 같을 것이다.&lt;/p&gt;
+이 원칙에 의거해 ( 분석자마다 원칙은 다를 수 있다. 적어도 나는 이러한 원칙을 항상 마음에 새기고 있을 뿐이다. ) 분석을 하기 전 고려해야할 사항들은 아래와 같을 것이다.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;em&gt;How many features do you have ( to build your model ) ?&lt;/em&gt;&lt;/li&gt;
