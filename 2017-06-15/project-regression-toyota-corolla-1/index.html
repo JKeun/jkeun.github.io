@@ -29,8 +29,8 @@
 <meta property="og:title" content="Project of Toyota Corolla Dataset ( 1 )" />
 <meta name="description" content="Step 1. Regression Workflow" />
 <meta property="og:description" content="Step 1. Regression Workflow" />
-<link rel="canonical" href="https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/" />
-<meta property="og:url" content="https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/" />
+<link rel="canonical" href="http://localhost:4000/2017-06-15/project-regression-toyota-corolla-1/" />
+<meta property="og:url" content="http://localhost:4000/2017-06-15/project-regression-toyota-corolla-1/" />
 <meta property="og:site_name" content="JAY" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-06-15T00:00:00+09:00" />
@@ -40,7 +40,7 @@
 "headline": "Project of Toyota Corolla Dataset ( 1 )",
 "datePublished": "2017-06-15T00:00:00+09:00",
 "description": "Step 1. Regression Workflow",
-"url": "https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/"}</script>
+"url": "http://localhost:4000/2017-06-15/project-regression-toyota-corolla-1/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -71,7 +71,7 @@ ga('send', 'pageview');
   <div class="content-container">
     <header>
   <div class="header-small">
-    <a href="https://jkeun.github.io">JAY</a>
+    <a href="http://localhost:4000">JAY</a>
   </div>
 </header>
 <div class="post">
@@ -83,35 +83,35 @@ ga('send', 'pageview');
     <ul>
       
       <li>
-        <a href="https://jkeun.github.io/tags#project">
+        <a href="http://localhost:4000/tags#project">
           <span>project</span>
         </a>
       </li>
       
       
       <li>
-        <a href="https://jkeun.github.io/tags#kaggle">
+        <a href="http://localhost:4000/tags#kaggle">
           <span>kaggle</span>
         </a>
       </li>
       
       
       <li>
-        <a href="https://jkeun.github.io/tags#regression">
+        <a href="http://localhost:4000/tags#regression">
           <span>regression</span>
         </a>
       </li>
       
       
       <li>
-        <a href="https://jkeun.github.io/tags#statistics">
+        <a href="http://localhost:4000/tags#statistics">
           <span>statistics</span>
         </a>
       </li>
       
       
       <li>
-        <a href="https://jkeun.github.io/tags#data analysis">
+        <a href="http://localhost:4000/tags#data analysis">
           <span>data analysis</span>
         </a>
       </li>
@@ -133,9 +133,9 @@ ga('send', 'pageview');
 </ul>
 
 <hr />
-<h4 id="workflow-of-regression">Workflow of Regression</h4>
+<h4 id="workflow-of-regression">WORKFLOW OF REGRESSION</h4>
 
-<h5 id="define-dataset">Define Dataset</h5>
+<h5 id="define-dataset">DEFINE DATASET</h5>
 <ul>
   <li>Sample set</li>
   <li>Train set</li>
@@ -143,10 +143,10 @@ ga('send', 'pageview');
   <li>Test set</li>
 </ul>
 
-<h5 id="define-features">Define Features</h5>
+<h5 id="define-features">DEFINE FEATURES</h5>
 <center><img src="/images/2017-06-15-project-regression-toyota-corolla-1.png" /></center>
 
-<h5 id="explore-features">Explore Features</h5>
+<h5 id="explore-features">EXPLORE FEATURES</h5>
 <p>회귀분석 모형에 사용할 변수를 찾아가는 과정. <br /> 
 주로 시각화 + Descriptive statistics(기술통계)를 통해 갖고있는 데이터 분포 및 특징(평균, 최빈값, 중앙값, 분산, 최대값, 최소값 등)을 파악한다. 이를 통해 모형을 설명 할 변수들의 중요도를 대략적으로 파악 할 수 있다. 또한 수많은 변수들 중에서 회귀모형에 사용 할 초기 변수들을 선택하는데 어느정도 기준을 세울 수 있다.</p>
 
@@ -160,9 +160,9 @@ ga('send', 'pageview');
   </li>
 </ul>
 
-<h5 id="feature-selection--step-wise-methods-">Feature Selection ( Step-wise Methods )</h5>
+<h5 id="feature-selection--step-wise-methods-">FEATURE SELECTION ( STEP-WISE METHODS )</h5>
 
-<h5 id="outliers-and-influential-observations">Outliers and Influential Observations</h5>
+<h5 id="outliers-and-influential-observations">OUTLIERS AND INFLUENTIAL OBSERVATIONS</h5>
 <p>이상치 ( Outlier ) 는 데이터 분포에서 극단에 있는 Data point 를 말한다. 이상치가 있고, 없고에 따라 분포의 특성 ( 평균 ) 이 급격하게 움직이는데, 이러한 Data point 는 내가 갖고있는 데이터의 대표값에 나쁜 영향 ( Influential 이 강함 ) 을 주는 것이다. 반면에 대표값에 별다른 영향을 주지 않는다면 ( Inlfuence 가 약함 ) 해당 Data point 를 그대로 사용해도 무방하다.</p>
 
 <ul>
@@ -172,23 +172,23 @@ ga('send', 'pageview');
   <li><a href="https://en.wikipedia.org/wiki/Cook%27s_distance">COOK’S DISTANCE</a> : 회귀계수에 대한 종합적 영향력 평가</li>
 </ul>
 
-<h5 id="diagnosis-of-model-and-assumption">Diagnosis of Model and Assumption</h5>
+<h5 id="diagnosis-of-models-and-assumptions">DIAGNOSIS OF MODELS AND ASSUMPTIONS</h5>
 <ol>
   <li>선형성 검토 : 독립변수에 대한 잔차를 통해 선형여부를 판단 ( <script type="math/tex">X</script> 를 대수변환, 지수변환 등 )</li>
   <li>등분산성 검토 : <script type="math/tex">\hat{y}</script> 에 대한 잔차를 통해 등분산성 판단 ( <script type="math/tex">y</script> 를 대수변환, 제곱근변환 등 )</li>
   <li>독립성 검토 : 오차항들은 서로 독립</li>
 </ol>
 
-<h5 id="check-inporved-model">Check Inporved Model</h5>
+<h5 id="check-an-improved-model">CHECK AN IMPROVED MODEL</h5>
 
-<h5 id="diagnosis-of-multicollinearity">Diagnosis of Multicollinearity</h5>
+<h5 id="diagnosis-of-multicollinearity">DIAGNOSIS OF MULTICOLLINEARITY</h5>
 <p>독립변수 ( <script type="math/tex">X</script> ) 들 간에 서로 상관성이 높을 경우 <a href="https://en.wikipedia.org/wiki/Multicollinearity">Multicollinearity ( 다중공선성 )</a> 이 발생한다. 머신러닝 문제에서 Overfitting 과 비슷한 개념. 이 경우, 모델에 학습되지 않은 범위의 <script type="math/tex">X_{new}</script> 데이터가 들어올 경우 굉장히 불안정한 예측값 ( <script type="math/tex">\hat{y}</script> ) 을 내놓는다. 모델링의 목적인 Generalization 에 위배.</p>
 <ul>
   <li><a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">( Pearson ) 상관행렬 및 상관계수</a>를 통해 독립변수간 상관성 파악</li>
   <li><a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">고유값 ( Eigen value ) </a> &lt; <script type="math/tex">30</script> &amp; <a href="https://en.wikipedia.org/wiki/Variance_inflation_factor">분산팽창계수 ( VIF; Variance Inflation Factor )</a> &lt; <script type="math/tex">10</script> 검토</li>
 </ul>
 
-<h5 id="final-regression-model">Final Regression Model</h5>
+<h5 id="find-a-final-regression-model">FIND A FINAL REGRESSION MODEL</h5>
 
 
   <!-- Disqus -->

@@ -2,8 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>JAY</title>
-    <link>https://jkeun.github.io</link>
-    <atom:link href="https://jkeun.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>자유도 ( Degrees of Freedom )</title>
+        <description>&lt;center&gt;&lt;mark&gt;&quot;In statistics, the number of values in the final calculation of a statistic that are free to vary.&quot;&lt;/mark&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;통계학의 여러 문제들을 풀기 위해선 &lt;a href=&quot;https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics)&quot;&gt;자유도 ( Degrees of Freedom )&lt;/a&gt;를 결정해야 할 때가 있다. 자유도는 “계산에 사용되는 자유로운 데이터의 수” 라고 정의 한다. 그렇다면 도대체 자유로운 데이터는 무엇이며, 자유롭지 않은 데이터는 무엇이란 말인가? 자유도에 대한 개념을 설명하기 위해 항상 나오는 &lt;a href=&quot;https://en.wikipedia.org/wiki/Mean&quot;&gt;평균 ( Mean )&lt;/a&gt;을 구하는 예를 살펴보자.&lt;/p&gt;
+
+&lt;h5 id=&quot;an-illustration-with-a-sample-mean&quot;&gt;AN ILLUSTRATION WITH A SAMPLE MEAN&lt;/h5&gt;
+&lt;p&gt;우리 모두가 알듯이 평균은 모든 데이터를 더한 후, 데이터의 총 갯수만큼 나눠서 구할 수 있다. 그렇다면 예를 들어 우리가 갖고 있는 데이터의 평균이 &lt;script type=&quot;math/tex&quot;&gt;25&lt;/script&gt; 이고, 데이터의 값들이 &lt;script type=&quot;math/tex&quot;&gt;20, 10, 50,&lt;/script&gt; 그리고 하나의 &lt;em&gt;unknown value&lt;/em&gt; 가 있다고 하자. 여기서 &lt;em&gt;unknown value&lt;/em&gt; 를 구하는 방정식은 &lt;script type=&quot;math/tex&quot;&gt;(20 + 10 + 50 + x) / 4 = 25&lt;/script&gt; 으로 세울 수 있고, 이를 풀면 &lt;script type=&quot;math/tex&quot;&gt;x = 20&lt;/script&gt; 으로 결정&lt;em&gt;( determined )&lt;/em&gt;된다.&lt;/p&gt;
+
+&lt;p&gt;그럼 더 나아가서 평균이 &lt;script type=&quot;math/tex&quot;&gt;25&lt;/script&gt; 이고, 데이터의 값들이 &lt;script type=&quot;math/tex&quot;&gt;20, 10,&lt;/script&gt; 그리고 두 개의 &lt;em&gt;unknown values&lt;/em&gt; 가 있다고 하자. 이 두 &lt;em&gt;unknown values&lt;/em&gt; 는 다를 수도 있기 때문에, 두 &lt;em&gt;different variables&lt;/em&gt; 은 &lt;script type=&quot;math/tex&quot;&gt;x, y&lt;/script&gt; 로 정의한다. 그리고 방정식을 세우면 &lt;script type=&quot;math/tex&quot;&gt;(20 + 10 + x + y) = 25&lt;/script&gt; 이 되고, 이를 풀면 &lt;script type=&quot;math/tex&quot;&gt;y = 70 - x&lt;/script&gt; 가 된다. 이 식은 일단 우리가 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; 의 값을 선택하면, &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 의 값은 완전히 결정됨을 의미한다. 즉, 현재 우리는 &lt;strong&gt;&lt;em&gt;한 번의 선택 ( one choice )&lt;/em&gt;&lt;/strong&gt; 을 할 수 있고, 그것은 &lt;strong&gt;&lt;em&gt;하나의 자유도 ( one degree of freedom )&lt;/em&gt;&lt;/strong&gt; 가 생겼음을 의미한다.&lt;/p&gt;
+
+&lt;p&gt;그럼 더더더 나아가서 &lt;script type=&quot;math/tex&quot;&gt;100&lt;/script&gt;개의 샘플을 갖고 있다고 가정하자. 만약 우리가 평균이 &lt;script type=&quot;math/tex&quot;&gt;20&lt;/script&gt; 이라는 것만 알고 나머지 데이터 값들은 모른다면, 그 때의 자유도는 &lt;script type=&quot;math/tex&quot;&gt;99&lt;/script&gt; 가 되고, 모든 값들을 다 더한다면 &lt;script type=&quot;math/tex&quot;&gt;20 \times 100 = 2000&lt;/script&gt; 이 될 것이다. 또한 우리가 &lt;script type=&quot;math/tex&quot;&gt;99&lt;/script&gt; 개의 데이터 값들을 안다면, 마지막 한 개의 값은 자동으로 결정될 것이다.&lt;/p&gt;
+
+&lt;h5 id=&quot;standard-deviation&quot;&gt;STANDARD DEVIATION&lt;/h5&gt;
+&lt;p&gt;통계학을 배우면서 자유도의 개념을 가장 먼저 접하는 순간이 &lt;a href=&quot;https://en.wikipedia.org/wiki/Standard_deviation&quot;&gt;표준편차 ( Stnadard deviation )&lt;/a&gt;를 배울 때다. 그럼 먼저 ( 샘플 ) 표준편차의 식을 보면서 살펴보기로 하자.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;s = \sqrt{\frac{1}{N-1} \sum (x_i - \bar{x})^2}, \quad df: n - 1&lt;/script&gt;
+
+&lt;p&gt;흔히 ( 샘플 ) 표준편차를 구할 때, 평균과 ( mean : &lt;script type=&quot;math/tex&quot;&gt;\bar{x}&lt;/script&gt; ) 각 관찰값들의 차이의 합을 &lt;script type=&quot;math/tex&quot;&gt;N-1&lt;/script&gt; 으로 나누어야 우리가 원하는 ( unbiased ) 표준편차가 나온다. ( 불편추정량에 대해서는 &lt;a href=&quot;https://en.wikipedia.org/wiki/Bias_of_an_estimator&quot;&gt;Bias of an estimator&lt;/a&gt; 를 참고하자. )&lt;/p&gt;
+
+&lt;p&gt;여기서 자유도가 &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 이 아니라 &lt;script type=&quot;math/tex&quot;&gt;n-1&lt;/script&gt; 인 이유는, &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; 개의 관찰값 ( &lt;em&gt;unknown values&lt;/em&gt; ) 과 평균 ( sample mean : &lt;script type=&quot;math/tex&quot;&gt;\bar{x}&lt;/script&gt;) 이 위 공식에 쓰여졌기 때문이다. 즉, 표준편차를 구하기 위해 사용된 평균을 우리는 이미 알고, 이로 인해 &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 개의 관찰값은 자동으로 결정 ( &lt;em&gt;determined&lt;/em&gt; ) 되기 때문에 &lt;script type=&quot;math/tex&quot;&gt;n-1&lt;/script&gt; 개의 자유도를 갖게 된 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“다시말해 어떤 &lt;em&gt;수식값 ( 통계량 )&lt;/em&gt; 을 찾기 위해 &lt;em&gt;사용된 parameter 의 갯수 ( &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; )&lt;/em&gt; 를 &lt;em&gt;샘플의 크기 ( &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; )&lt;/em&gt; 에서 빼준 것이 &lt;em&gt;자유도의 수 ( &lt;script type=&quot;math/tex&quot;&gt;N-k&lt;/script&gt; )&lt;/em&gt; 가 된다.”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;sum-of-squares&quot;&gt;SUM OF SQUARES&lt;/h5&gt;
+&lt;p&gt;회귀분석에서 &lt;script type=&quot;math/tex&quot;&gt;R^2&lt;/script&gt;(결정계수) 를 구하거나 회귀모형의 &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;-검정을 할 때, 나오는 개념이 &lt;a href=&quot;https://en.wikipedia.org/wiki/Partition_of_sums_of_squares&quot;&gt;제곱합(SUM OF SQUARES)&lt;/a&gt; 이다.&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;https://image.slidesharecdn.com/linearregression-140903114216-phpapp01/95/linear-regression-22-638.jpg?cb=1409744639&quot; width=&quot;400&quot; /&gt;&lt;/center&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;결정계수 ( &lt;script type=&quot;math/tex&quot;&gt;R^2&lt;/script&gt;; Coefficient of Determination ) : &lt;script type=&quot;math/tex&quot;&gt;\frac{SSR}{SST} = 1 - \frac{SSE}{SST}&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;총제곱합 ( SST; Total Sum of Squres ) : &lt;script type=&quot;math/tex&quot;&gt;\sum{(Y_i - \bar{Y})^2}&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;오차제곱합 ( SSE; Sum of Squres Error ) : &lt;script type=&quot;math/tex&quot;&gt;\sum{(Y_i - \hat{Y_i})^2}&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;회귀제곱합 ( SSR; Sum of Squres Regression ) : &lt;script type=&quot;math/tex&quot;&gt;\sum{(\hat{Y_i} - \bar{Y})^2}&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;우리가 추정한 회귀식이 표본을 잘 설명하고 있다면 설명된 제곱합 SSR 은 설명 안 된 제곱합 SSE 에 비해 상대적으로 클 것이다. 따라서 결정계수 ( &lt;script type=&quot;math/tex&quot;&gt;R^2&lt;/script&gt; ) 는 &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 에 가까워지게 된다. 반대로 회귀식이 표본을 잘 설명하지 않는다면 설명 안 된 제곱합 SSE 이 설명된 제곱합 SSR 에 비해 상대적으로 크게 되어 결정계수는 &lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt; 에 가까워지게 된다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+제곱합 \quad &amp;SST = SSE + SSR \\
+자유도 \quad &amp;n-1 = (n-k-1) + (k) \\
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;그렇다면 각 제곱합들의 자유도는 어떻게 될까? 먼저 SST 의 자유도는 수식에서 평균 ( &lt;script type=&quot;math/tex&quot;&gt;\bar{Y}&lt;/script&gt; ) 이라는 parameter 가 사용되었으므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;n -1&lt;/script&gt; 이 된다. SSE 의 자유도는 예측값 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{Y_i} = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k&lt;/script&gt; ) 을 추정하기 위해 회귀식의 parameter 인 &lt;script type=&quot;math/tex&quot;&gt;\beta_0, \beta_1, \dots, \beta_k&lt;/script&gt; 가 사용되었으므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;n-k-1&lt;/script&gt; 이 된다. 마지막으로 SSR 의 자유도는 SST - SSE 이므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 이 된다. 이는 곧 회귀식에 사용한 독립변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;, independent variables ) 의 갯수와 같다는 것을 알 수 있다.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 24 Jul 2017 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2017-07-24/memo-degrees-of-freedom/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-07-24/memo-degrees-of-freedom/</guid>
+      </item>
     
       <item>
         <title>Project of Toyota Corolla Dataset ( 1 )</title>
@@ -20,9 +71,9 @@
 &lt;/ul&gt;
 
 &lt;hr /&gt;
-&lt;h4 id=&quot;workflow-of-regression&quot;&gt;Workflow of Regression&lt;/h4&gt;
+&lt;h4 id=&quot;workflow-of-regression&quot;&gt;WORKFLOW OF REGRESSION&lt;/h4&gt;
 
-&lt;h5 id=&quot;define-dataset&quot;&gt;Define Dataset&lt;/h5&gt;
+&lt;h5 id=&quot;define-dataset&quot;&gt;DEFINE DATASET&lt;/h5&gt;
 &lt;ul&gt;
   &lt;li&gt;Sample set&lt;/li&gt;
   &lt;li&gt;Train set&lt;/li&gt;
@@ -30,10 +81,10 @@
   &lt;li&gt;Test set&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;define-features&quot;&gt;Define Features&lt;/h5&gt;
+&lt;h5 id=&quot;define-features&quot;&gt;DEFINE FEATURES&lt;/h5&gt;
 &lt;center&gt;&lt;img src=&quot;/images/2017-06-15-project-regression-toyota-corolla-1.png&quot; /&gt;&lt;/center&gt;
 
-&lt;h5 id=&quot;explore-features&quot;&gt;Explore Features&lt;/h5&gt;
+&lt;h5 id=&quot;explore-features&quot;&gt;EXPLORE FEATURES&lt;/h5&gt;
 &lt;p&gt;회귀분석 모형에 사용할 변수를 찾아가는 과정. &lt;br /&gt; 
 주로 시각화 + Descriptive statistics(기술통계)를 통해 갖고있는 데이터 분포 및 특징(평균, 최빈값, 중앙값, 분산, 최대값, 최소값 등)을 파악한다. 이를 통해 모형을 설명 할 변수들의 중요도를 대략적으로 파악 할 수 있다. 또한 수많은 변수들 중에서 회귀모형에 사용 할 초기 변수들을 선택하는데 어느정도 기준을 세울 수 있다.&lt;/p&gt;
 
@@ -47,9 +98,9 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;feature-selection--step-wise-methods-&quot;&gt;Feature Selection ( Step-wise Methods )&lt;/h5&gt;
+&lt;h5 id=&quot;feature-selection--step-wise-methods-&quot;&gt;FEATURE SELECTION ( STEP-WISE METHODS )&lt;/h5&gt;
 
-&lt;h5 id=&quot;outliers-and-influential-observations&quot;&gt;Outliers and Influential Observations&lt;/h5&gt;
+&lt;h5 id=&quot;outliers-and-influential-observations&quot;&gt;OUTLIERS AND INFLUENTIAL OBSERVATIONS&lt;/h5&gt;
 &lt;p&gt;이상치 ( Outlier ) 는 데이터 분포에서 극단에 있는 Data point 를 말한다. 이상치가 있고, 없고에 따라 분포의 특성 ( 평균 ) 이 급격하게 움직이는데, 이러한 Data point 는 내가 갖고있는 데이터의 대표값에 나쁜 영향 ( Influential 이 강함 ) 을 주는 것이다. 반면에 대표값에 별다른 영향을 주지 않는다면 ( Inlfuence 가 약함 ) 해당 Data point 를 그대로 사용해도 무방하다.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -59,42 +110,42 @@
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Cook%27s_distance&quot;&gt;COOK’S DISTANCE&lt;/a&gt; : 회귀계수에 대한 종합적 영향력 평가&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;diagnosis-of-model-and-assumption&quot;&gt;Diagnosis of Model and Assumption&lt;/h5&gt;
+&lt;h5 id=&quot;diagnosis-of-models-and-assumptions&quot;&gt;DIAGNOSIS OF MODELS AND ASSUMPTIONS&lt;/h5&gt;
 &lt;ol&gt;
   &lt;li&gt;선형성 검토 : 독립변수에 대한 잔차를 통해 선형여부를 판단 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 를 대수변환, 지수변환 등 )&lt;/li&gt;
   &lt;li&gt;등분산성 검토 : &lt;script type=&quot;math/tex&quot;&gt;\hat{y}&lt;/script&gt; 에 대한 잔차를 통해 등분산성 판단 ( &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 를 대수변환, 제곱근변환 등 )&lt;/li&gt;
   &lt;li&gt;독립성 검토 : 오차항들은 서로 독립&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h5 id=&quot;check-inporved-model&quot;&gt;Check Inporved Model&lt;/h5&gt;
+&lt;h5 id=&quot;check-an-improved-model&quot;&gt;CHECK AN IMPROVED MODEL&lt;/h5&gt;
 
-&lt;h5 id=&quot;diagnosis-of-multicollinearity&quot;&gt;Diagnosis of Multicollinearity&lt;/h5&gt;
+&lt;h5 id=&quot;diagnosis-of-multicollinearity&quot;&gt;DIAGNOSIS OF MULTICOLLINEARITY&lt;/h5&gt;
 &lt;p&gt;독립변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; ) 들 간에 서로 상관성이 높을 경우 &lt;a href=&quot;https://en.wikipedia.org/wiki/Multicollinearity&quot;&gt;Multicollinearity ( 다중공선성 )&lt;/a&gt; 이 발생한다. 머신러닝 문제에서 Overfitting 과 비슷한 개념. 이 경우, 모델에 학습되지 않은 범위의 &lt;script type=&quot;math/tex&quot;&gt;X_{new}&lt;/script&gt; 데이터가 들어올 경우 굉장히 불안정한 예측값 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{y}&lt;/script&gt; ) 을 내놓는다. 모델링의 목적인 Generalization 에 위배.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Pearson_correlation_coefficient&quot;&gt;( Pearson ) 상관행렬 및 상관계수&lt;/a&gt;를 통해 독립변수간 상관성 파악&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors&quot;&gt;고유값 ( Eigen value ) &lt;/a&gt; &amp;lt; &lt;script type=&quot;math/tex&quot;&gt;30&lt;/script&gt; &amp;amp; &lt;a href=&quot;https://en.wikipedia.org/wiki/Variance_inflation_factor&quot;&gt;분산팽창계수 ( VIF; Variance Inflation Factor )&lt;/a&gt; &amp;lt; &lt;script type=&quot;math/tex&quot;&gt;10&lt;/script&gt; 검토&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h5 id=&quot;final-regression-model&quot;&gt;Final Regression Model&lt;/h5&gt;
+&lt;h5 id=&quot;find-a-final-regression-model&quot;&gt;FIND A FINAL REGRESSION MODEL&lt;/h5&gt;
 </description>
         <pubDate>Thu, 15 Jun 2017 00:00:00 +0900</pubDate>
-        <link>https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/</link>
-        <guid isPermaLink="true">https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/</guid>
+        <link>http://localhost:4000/2017-06-15/project-regression-toyota-corolla-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-06-15/project-regression-toyota-corolla-1/</guid>
       </item>
     
       <item>
         <title>ML 1.2 Supervised learning</title>
-        <description>&lt;h3 id=&quot;12-supervised-learning&quot;&gt;1.2 Supervised learning&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;12-supervised-learning&quot;&gt;1.2 SUPERVISED LEARNING&lt;/h3&gt;
 
 &lt;p&gt;ML 에서 가장 광범위하게 사용되는 Supervised Learning에 대해서 알아보자.&lt;/p&gt;
 
-&lt;h4 id=&quot;121-classification&quot;&gt;1.2.1 Classification&lt;/h4&gt;
+&lt;h4 id=&quot;121-classification&quot;&gt;1.2.1 CLASSIFICATION&lt;/h4&gt;
 
 &lt;p&gt;Classification 의 목표는 inputs &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; 에서 outputs &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 로의 mapping 을 학습시키는 것이다. &lt;script type=&quot;math/tex&quot;&gt;y \in \{ 1, \dots , C\}&lt;/script&gt; 이고, &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; 는 classes 의 개수이다. 만약 &lt;script type=&quot;math/tex&quot;&gt;C = 2&lt;/script&gt; 라면, &lt;strong&gt;binary classification&lt;/strong&gt; (이 경우 &lt;script type=&quot;math/tex&quot;&gt;y \in \{ 0, 1 \}&lt;/script&gt; ), 만약 &lt;script type=&quot;math/tex&quot;&gt;C &gt; 2&lt;/script&gt; 이면 &lt;strong&gt;multi classification&lt;/strong&gt;이라 부른다. 또 만약 클래스의 라벨이 not mutually exclusive 하다면 (예를들어 한 사람을 “키가크고 힘이세다” 라고 분류했다면), &lt;strong&gt;multi-label classification&lt;/strong&gt; 이라고 부른다. (&lt;strong&gt;multiple output model&lt;/strong&gt; 이라고도 함). 보통 우리가 “classification” 이란 용어를 쓸 때는 multiclass classification with a single output 임을 가정한다.&lt;/p&gt;
 
 &lt;p&gt;우리는 흔히 문제를 formalize (형상화) 하는 방법으로 &lt;strong&gt;function approximation&lt;/strong&gt; 을 한다. 알지 못하는 function &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 에 대해 &lt;script type=&quot;math/tex&quot;&gt;y = f(X)&lt;/script&gt; 로 식을 만들고, 라벨링 되어있는 training set 으로 function &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; 를 추정하기 위해 학습하는 것이 목표라 할 수 있다. 그리고 나서 &lt;script type=&quot;math/tex&quot;&gt;\hat{y} = \hat{f(X)}&lt;/script&gt; 을 사용하여 예측을 하는 것이다. 우리의 주 목표는 novel inputs (미지의 데이터) 로부터 예측을 하는 것인데, 이는 학습데이터 외에 우리가 한번도 보지 못했던 데이터를 의미한다. (이것을 &lt;strong&gt;generalization&lt;/strong&gt;이라고 부른다). 만약 training set 에 대응되는 &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 값을 예측하는건 그냥 학습데이터에서 답을 찾으면 되는 것이므로 의미없다.&lt;/p&gt;
 
-&lt;h5 id=&quot;1211-example&quot;&gt;1.2.1.1 Example&lt;/h5&gt;
+&lt;h5 id=&quot;1211-example&quot;&gt;1.2.1.1 EXAMPLE&lt;/h5&gt;
 
 &lt;center&gt;&lt;img src=&quot;/images/2017-03-08-ml-1-2-supervised-learning-1.png&quot; /&gt;&lt;/center&gt;
 
@@ -107,7 +158,7 @@ Right: &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; 형태�
 
 &lt;p&gt;Figure 1.1 에서 test set 에는 파란 초승달, 노란 원 그리고 파란 화살표가 있다. 이들 모두 이전에는 보지 못했던 조합이다. (학습데이터에 똑같은 것이 없다). 그러므로 우리는 학습데이터를 뛰어넘어 &lt;strong&gt;generalize&lt;/strong&gt; 를 할 필요가 있다. 합리적인 추측을 한다면 파란 초승달은 &lt;script type=&quot;math/tex&quot;&gt;y=1&lt;/script&gt; 이 되어야 한다. 왜냐하면 모든 파란색 모양들은 학습데이터에서 라벨링이 1이기 때문이다. 노란 원은 분류하기 좀 까다로운데, 어떤 노란색 모양들은 &lt;script type=&quot;math/tex&quot;&gt;y=1&lt;/script&gt; 이고, 또 어떤 것들은 &lt;script type=&quot;math/tex&quot;&gt;y=0&lt;/script&gt; 이기 때문이다. 게다가 어떤 원 모양들은 &lt;script type=&quot;math/tex&quot;&gt;y=1&lt;/script&gt; 이며 &lt;script type=&quot;math/tex&quot;&gt;y=0&lt;/script&gt; 이기도 한다. 결론적으로 노란색 원의 경우 올바르게 라벨링하기 어렵고 그 기준이 명확하지 않다. 파란 화살표도 비슷한 문제를 가진다.&lt;/p&gt;
 
-&lt;h5 id=&quot;1212-the-need-for-probabilistic-predictions&quot;&gt;1.2.1.2 The need for probabilistic predictions&lt;/h5&gt;
+&lt;h5 id=&quot;1212-the-need-for-probabilistic-predictions&quot;&gt;1.2.1.2 THE NEED FOR PROBABILISTIC PREDICTIONS&lt;/h5&gt;
 
 &lt;p&gt;위의 노란 원 처럼 모호한 케이스를 다루기 위해 우리는 확률이론으로 돌아가야 한다.&lt;/p&gt;
 
@@ -121,8 +172,8 @@ Right: &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; 형태�
 
 </description>
         <pubDate>Tue, 13 Jun 2017 00:00:00 +0900</pubDate>
-        <link>https://jkeun.github.io/2017-06-13/ml-1-2-supervised-learning/</link>
-        <guid isPermaLink="true">https://jkeun.github.io/2017-06-13/ml-1-2-supervised-learning/</guid>
+        <link>http://localhost:4000/2017-06-13/ml-1-2-supervised-learning/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-06-13/ml-1-2-supervised-learning/</guid>
       </item>
     
       <item>
@@ -135,7 +186,7 @@ Right: &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; 형태�
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;11-machine-learning-what-and-why&quot;&gt;1.1 Machine learning: what and why?&lt;/h2&gt;
+&lt;h3 id=&quot;11-machine-learning-what-and-why&quot;&gt;1.1 MACHINE LEARNING: WHAT AND WHY?&lt;/h3&gt;
 
 &lt;center&gt;&lt;mark&gt;&quot;We are drowning in information and starving for knowledge. - John Naisbitt.&quot;&lt;/mark&gt;&lt;/center&gt;
 
@@ -151,7 +202,7 @@ Right: &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; 형태�
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;111-types-of-machine-learning&quot;&gt;1.1.1 Types of machine learning&lt;/h3&gt;
+&lt;h4 id=&quot;111-types-of-machine-learning&quot;&gt;1.1.1 TYPES OF MACHINE LEARNING&lt;/h4&gt;
 
 &lt;p&gt;머신러닝은 대게 두 종류의 주요 타입으로 나뉜다.&lt;/p&gt;
 
@@ -166,8 +217,8 @@ Right: &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; 형태�
 &lt;p&gt;마지막으로 세번째 타입은 &lt;del&gt;다소 덜 사용되는&lt;/del&gt; &lt;strong&gt;reinforcement learning(강화학습)&lt;/strong&gt; 이다. 이것은 적절한 reward와 punishment가 주어진 상황에서 어떻게 결정하고 행동할지에 대한 학습에 유용하다. 그러나 불행하게도, RL은 이 책에선 다루지 않는다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 13 Jun 2017 00:00:00 +0900</pubDate>
-        <link>https://jkeun.github.io/2017-06-13/ml-1-1-machine-learning-what-why/</link>
-        <guid isPermaLink="true">https://jkeun.github.io/2017-06-13/ml-1-1-machine-learning-what-why/</guid>
+        <link>http://localhost:4000/2017-06-13/ml-1-1-machine-learning-what-why/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-06-13/ml-1-1-machine-learning-what-why/</guid>
       </item>
     
   </channel>
