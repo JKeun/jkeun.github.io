@@ -29,8 +29,8 @@
 <meta property="og:title" content="자유도 ( Degrees of Freedom )" />
 <meta name="description" content="Memo ( 1 ) - Degrees of Freedom" />
 <meta property="og:description" content="Memo ( 1 ) - Degrees of Freedom" />
-<link rel="canonical" href="http://localhost:4000/2017-07-24/memo-degrees-of-freedom/" />
-<meta property="og:url" content="http://localhost:4000/2017-07-24/memo-degrees-of-freedom/" />
+<link rel="canonical" href="https://jkeun.github.io/2017-07-24/memo-degrees-of-freedom/" />
+<meta property="og:url" content="https://jkeun.github.io/2017-07-24/memo-degrees-of-freedom/" />
 <meta property="og:site_name" content="JAY" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-07-24T00:00:00+09:00" />
@@ -40,7 +40,7 @@
 "headline": "자유도 ( Degrees of Freedom )",
 "datePublished": "2017-07-24T00:00:00+09:00",
 "description": "Memo ( 1 ) - Degrees of Freedom",
-"url": "http://localhost:4000/2017-07-24/memo-degrees-of-freedom/"}</script>
+"url": "https://jkeun.github.io/2017-07-24/memo-degrees-of-freedom/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -71,7 +71,7 @@ ga('send', 'pageview');
   <div class="content-container">
     <header>
   <div class="header-small">
-    <a href="http://localhost:4000">JAY</a>
+    <a href="https://jkeun.github.io">JAY</a>
   </div>
 </header>
 <div class="post">
@@ -83,56 +83,56 @@ ga('send', 'pageview');
     <ul>
       
       <li>
-        <a href="http://localhost:4000/tags#memo">
+        <a href="https://jkeun.github.io/tags#memo">
           <span>memo</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#degrees of freedom">
+        <a href="https://jkeun.github.io/tags#degrees of freedom">
           <span>degrees of freedom</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#자유도">
+        <a href="https://jkeun.github.io/tags#자유도">
           <span>자유도</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#SST">
+        <a href="https://jkeun.github.io/tags#SST">
           <span>SST</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#SSE">
+        <a href="https://jkeun.github.io/tags#SSE">
           <span>SSE</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#SSR">
+        <a href="https://jkeun.github.io/tags#SSR">
           <span>SSR</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#regression">
+        <a href="https://jkeun.github.io/tags#regression">
           <span>regression</span>
         </a>
       </li>
       
       
       <li>
-        <a href="http://localhost:4000/tags#statistics">
+        <a href="https://jkeun.github.io/tags#statistics">
           <span>statistics</span>
         </a>
       </li>
@@ -147,7 +147,7 @@ ga('send', 'pageview');
 <p>통계학의 여러 문제들을 풀기 위해선 <a href="https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics)">자유도 ( Degrees of Freedom )</a>를 결정해야 할 때가 있다. 자유도는 “계산에 사용되는 자유로운 데이터의 수” 라고 정의 한다. 그렇다면 도대체 자유로운 데이터는 무엇이며, 자유롭지 않은 데이터는 무엇이란 말인가? 자유도에 대한 개념을 설명하기 위해 항상 나오는 <a href="https://en.wikipedia.org/wiki/Mean">평균 ( Mean )</a>을 구하는 예를 살펴보자.</p>
 
 <h5 id="an-illustration-with-a-sample-mean">AN ILLUSTRATION WITH A SAMPLE MEAN</h5>
-<p>우리 모두가 알듯이 평균은 모든 데이터를 더한 후, 데이터의 총 갯수만큼 나눠서 구할 수 있다. 그렇다면 예를 들어 우리가 갖고 있는 데이터의 평균이 <script type="math/tex">25</script> 이고, 데이터의 값들이 <script type="math/tex">20, 10, 50,</script> 그리고 하나의 <em>unknown value</em> 가 있다고 하자. 여기서 <em>unknown value</em> 를 구하는 방정식은 <script type="math/tex">(20 + 10 + 50 + x) / 4 = 25</script> 으로 세울 수 있고, 이를 풀면 <script type="math/tex">x = 20</script> 으로 결정<em>( determined )</em>된다.</p>
+<p>우리 모두가 알듯이 평균은 모든 데이터를 더한 후, 데이터의 총 갯수만큼 나눠서 구할 수 있다. 그렇다면 예를 들어 우리가 갖고 있는 데이터의 평균이 <script type="math/tex">25</script> 이고, 데이터의 값들이 <script type="math/tex">20, 10, 50,</script> 그리고 하나의 <em>unknown value</em> 가 있다고 하자. 여기서 <em>unknown value</em> 를 구하는 방정식은 <script type="math/tex">(20 + 10 + 50 + x) / 4 = 25</script> 으로 세울 수 있고, 이를 풀면 <script type="math/tex">x = 20</script> 으로 결정<em>( determined )</em> 된다.</p>
 
 <p>그럼 더 나아가서 평균이 <script type="math/tex">25</script> 이고, 데이터의 값들이 <script type="math/tex">20, 10,</script> 그리고 두 개의 <em>unknown values</em> 가 있다고 하자. 이 두 <em>unknown values</em> 는 다를 수도 있기 때문에, 두 <em>different variables</em> 은 <script type="math/tex">x, y</script> 로 정의한다. 그리고 방정식을 세우면 <script type="math/tex">(20 + 10 + x + y) = 25</script> 이 되고, 이를 풀면 <script type="math/tex">y = 70 - x</script> 가 된다. 이 식은 일단 우리가 <script type="math/tex">x</script> 의 값을 선택하면, <script type="math/tex">y</script> 의 값은 완전히 결정됨을 의미한다. 즉, 현재 우리는 <strong><em>한 번의 선택 ( one choice )</em></strong> 을 할 수 있고, 그것은 <strong><em>하나의 자유도 ( one degree of freedom )</em></strong> 가 생겼음을 의미한다.</p>
 
@@ -183,7 +183,7 @@ ga('send', 'pageview');
 자유도 \quad &n-1 = (n-k-1) + (k) \\
 \end{align} %]]></script>
 
-<p>그렇다면 각 제곱합들의 자유도는 어떻게 될까? 먼저 SST 의 자유도는 수식에서 평균 ( <script type="math/tex">\bar{Y}</script> ) 이라는 parameter 가 사용되었으므로 자유도는 <script type="math/tex">n -1</script> 이 된다. SSE 의 자유도는 예측값 ( <script type="math/tex">\hat{Y_i} = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k</script> ) 을 추정하기 위해 회귀식의 parameter 인 <script type="math/tex">\beta_0, \beta_1, \dots, \beta_k</script> 가 사용되었으므로 자유도는 <script type="math/tex">n-k-1</script> 이 된다. 마지막으로 SSR 의 자유도는 SST - SSE 이므로 자유도는 <script type="math/tex">1</script> 이 된다. 이는 곧 회귀식에 사용한 독립변수 ( <script type="math/tex">X</script>, independent variables ) 의 갯수와 같다는 것을 알 수 있다.</p>
+<p>그렇다면 각 제곱합들의 자유도는 어떻게 될까? 먼저 SST 의 자유도는 수식에서 평균 ( <script type="math/tex">\bar{Y}</script> ) 이라는 parameter 가 사용되었으므로 자유도는 <script type="math/tex">n -1</script> 이 된다. SSE 의 자유도는 예측값 ( <script type="math/tex">\hat{Y_i} = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k</script> ) 을 추정하기 위해 회귀식의 parameter 인 <script type="math/tex">\beta_0, \beta_1, \dots, \beta_k</script> 가 사용되었으므로 자유도는 <script type="math/tex">n-k-1</script> 이 된다. 마지막으로 SSR 의 자유도는 SST - SSE 이므로 자유도는 <script type="math/tex">k</script> 가 된다. 이는 곧 회귀식에 사용한 독립변수 ( <script type="math/tex">X</script>, independent variables ) 의 갯수와 같다는 것을 알 수 있다.</p>
 
 
   <!-- Disqus -->

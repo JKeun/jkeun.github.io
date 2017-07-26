@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>JAY</title>
-    <link>http://localhost:4000</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://jkeun.github.io</link>
+    <atom:link href="https://jkeun.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>자유도 ( Degrees of Freedom )</title>
@@ -13,7 +13,7 @@
 &lt;p&gt;통계학의 여러 문제들을 풀기 위해선 &lt;a href=&quot;https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics)&quot;&gt;자유도 ( Degrees of Freedom )&lt;/a&gt;를 결정해야 할 때가 있다. 자유도는 “계산에 사용되는 자유로운 데이터의 수” 라고 정의 한다. 그렇다면 도대체 자유로운 데이터는 무엇이며, 자유롭지 않은 데이터는 무엇이란 말인가? 자유도에 대한 개념을 설명하기 위해 항상 나오는 &lt;a href=&quot;https://en.wikipedia.org/wiki/Mean&quot;&gt;평균 ( Mean )&lt;/a&gt;을 구하는 예를 살펴보자.&lt;/p&gt;
 
 &lt;h5 id=&quot;an-illustration-with-a-sample-mean&quot;&gt;AN ILLUSTRATION WITH A SAMPLE MEAN&lt;/h5&gt;
-&lt;p&gt;우리 모두가 알듯이 평균은 모든 데이터를 더한 후, 데이터의 총 갯수만큼 나눠서 구할 수 있다. 그렇다면 예를 들어 우리가 갖고 있는 데이터의 평균이 &lt;script type=&quot;math/tex&quot;&gt;25&lt;/script&gt; 이고, 데이터의 값들이 &lt;script type=&quot;math/tex&quot;&gt;20, 10, 50,&lt;/script&gt; 그리고 하나의 &lt;em&gt;unknown value&lt;/em&gt; 가 있다고 하자. 여기서 &lt;em&gt;unknown value&lt;/em&gt; 를 구하는 방정식은 &lt;script type=&quot;math/tex&quot;&gt;(20 + 10 + 50 + x) / 4 = 25&lt;/script&gt; 으로 세울 수 있고, 이를 풀면 &lt;script type=&quot;math/tex&quot;&gt;x = 20&lt;/script&gt; 으로 결정&lt;em&gt;( determined )&lt;/em&gt;된다.&lt;/p&gt;
+&lt;p&gt;우리 모두가 알듯이 평균은 모든 데이터를 더한 후, 데이터의 총 갯수만큼 나눠서 구할 수 있다. 그렇다면 예를 들어 우리가 갖고 있는 데이터의 평균이 &lt;script type=&quot;math/tex&quot;&gt;25&lt;/script&gt; 이고, 데이터의 값들이 &lt;script type=&quot;math/tex&quot;&gt;20, 10, 50,&lt;/script&gt; 그리고 하나의 &lt;em&gt;unknown value&lt;/em&gt; 가 있다고 하자. 여기서 &lt;em&gt;unknown value&lt;/em&gt; 를 구하는 방정식은 &lt;script type=&quot;math/tex&quot;&gt;(20 + 10 + 50 + x) / 4 = 25&lt;/script&gt; 으로 세울 수 있고, 이를 풀면 &lt;script type=&quot;math/tex&quot;&gt;x = 20&lt;/script&gt; 으로 결정&lt;em&gt;( determined )&lt;/em&gt; 된다.&lt;/p&gt;
 
 &lt;p&gt;그럼 더 나아가서 평균이 &lt;script type=&quot;math/tex&quot;&gt;25&lt;/script&gt; 이고, 데이터의 값들이 &lt;script type=&quot;math/tex&quot;&gt;20, 10,&lt;/script&gt; 그리고 두 개의 &lt;em&gt;unknown values&lt;/em&gt; 가 있다고 하자. 이 두 &lt;em&gt;unknown values&lt;/em&gt; 는 다를 수도 있기 때문에, 두 &lt;em&gt;different variables&lt;/em&gt; 은 &lt;script type=&quot;math/tex&quot;&gt;x, y&lt;/script&gt; 로 정의한다. 그리고 방정식을 세우면 &lt;script type=&quot;math/tex&quot;&gt;(20 + 10 + x + y) = 25&lt;/script&gt; 이 되고, 이를 풀면 &lt;script type=&quot;math/tex&quot;&gt;y = 70 - x&lt;/script&gt; 가 된다. 이 식은 일단 우리가 &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; 의 값을 선택하면, &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; 의 값은 완전히 결정됨을 의미한다. 즉, 현재 우리는 &lt;strong&gt;&lt;em&gt;한 번의 선택 ( one choice )&lt;/em&gt;&lt;/strong&gt; 을 할 수 있고, 그것은 &lt;strong&gt;&lt;em&gt;하나의 자유도 ( one degree of freedom )&lt;/em&gt;&lt;/strong&gt; 가 생겼음을 의미한다.&lt;/p&gt;
 
@@ -49,11 +49,11 @@
 자유도 \quad &amp;n-1 = (n-k-1) + (k) \\
 \end{align} %]]&gt;&lt;/script&gt;
 
-&lt;p&gt;그렇다면 각 제곱합들의 자유도는 어떻게 될까? 먼저 SST 의 자유도는 수식에서 평균 ( &lt;script type=&quot;math/tex&quot;&gt;\bar{Y}&lt;/script&gt; ) 이라는 parameter 가 사용되었으므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;n -1&lt;/script&gt; 이 된다. SSE 의 자유도는 예측값 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{Y_i} = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k&lt;/script&gt; ) 을 추정하기 위해 회귀식의 parameter 인 &lt;script type=&quot;math/tex&quot;&gt;\beta_0, \beta_1, \dots, \beta_k&lt;/script&gt; 가 사용되었으므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;n-k-1&lt;/script&gt; 이 된다. 마지막으로 SSR 의 자유도는 SST - SSE 이므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; 이 된다. 이는 곧 회귀식에 사용한 독립변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;, independent variables ) 의 갯수와 같다는 것을 알 수 있다.&lt;/p&gt;
+&lt;p&gt;그렇다면 각 제곱합들의 자유도는 어떻게 될까? 먼저 SST 의 자유도는 수식에서 평균 ( &lt;script type=&quot;math/tex&quot;&gt;\bar{Y}&lt;/script&gt; ) 이라는 parameter 가 사용되었으므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;n -1&lt;/script&gt; 이 된다. SSE 의 자유도는 예측값 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{Y_i} = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k&lt;/script&gt; ) 을 추정하기 위해 회귀식의 parameter 인 &lt;script type=&quot;math/tex&quot;&gt;\beta_0, \beta_1, \dots, \beta_k&lt;/script&gt; 가 사용되었으므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;n-k-1&lt;/script&gt; 이 된다. 마지막으로 SSR 의 자유도는 SST - SSE 이므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 가 된다. 이는 곧 회귀식에 사용한 독립변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;, independent variables ) 의 갯수와 같다는 것을 알 수 있다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 24 Jul 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-07-24/memo-degrees-of-freedom/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-07-24/memo-degrees-of-freedom/</guid>
+        <link>https://jkeun.github.io/2017-07-24/memo-degrees-of-freedom/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-07-24/memo-degrees-of-freedom/</guid>
       </item>
     
       <item>
@@ -129,8 +129,8 @@
 &lt;h5 id=&quot;find-a-final-regression-model&quot;&gt;FIND A FINAL REGRESSION MODEL&lt;/h5&gt;
 </description>
         <pubDate>Thu, 15 Jun 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-06-15/project-regression-toyota-corolla-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-06-15/project-regression-toyota-corolla-1/</guid>
+        <link>https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-06-15/project-regression-toyota-corolla-1/</guid>
       </item>
     
       <item>
@@ -172,8 +172,8 @@ Right: &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; 형태�
 
 </description>
         <pubDate>Tue, 13 Jun 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-06-13/ml-1-2-supervised-learning/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-06-13/ml-1-2-supervised-learning/</guid>
+        <link>https://jkeun.github.io/2017-06-13/ml-1-2-supervised-learning/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-06-13/ml-1-2-supervised-learning/</guid>
       </item>
     
       <item>
@@ -217,8 +217,8 @@ Right: &lt;script type=&quot;math/tex&quot;&gt;N \times D&lt;/script&gt; 형태�
 &lt;p&gt;마지막으로 세번째 타입은 &lt;del&gt;다소 덜 사용되는&lt;/del&gt; &lt;strong&gt;reinforcement learning(강화학습)&lt;/strong&gt; 이다. 이것은 적절한 reward와 punishment가 주어진 상황에서 어떻게 결정하고 행동할지에 대한 학습에 유용하다. 그러나 불행하게도, RL은 이 책에선 다루지 않는다.&lt;/p&gt;
 </description>
         <pubDate>Tue, 13 Jun 2017 00:00:00 +0900</pubDate>
-        <link>http://localhost:4000/2017-06-13/ml-1-1-machine-learning-what-why/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-06-13/ml-1-1-machine-learning-what-why/</guid>
+        <link>https://jkeun.github.io/2017-06-13/ml-1-1-machine-learning-what-why/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-06-13/ml-1-1-machine-learning-what-why/</guid>
       </item>
     
   </channel>
