@@ -6,7 +6,7 @@
     <atom:link href="https://jkeun.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>자유도 ( Degrees of Freedom )</title>
+        <title>Degrees of Freedom</title>
         <description>&lt;center&gt;&lt;mark&gt;&quot;In statistics, the number of values in the final calculation of a statistic that are free to vary.&quot;&lt;/mark&gt;&lt;/center&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -52,8 +52,8 @@
 &lt;p&gt;그렇다면 각 제곱합들의 자유도는 어떻게 될까? 먼저 SST 의 자유도는 수식에서 평균 ( &lt;script type=&quot;math/tex&quot;&gt;\bar{Y}&lt;/script&gt; ) 이라는 parameter 가 사용되었으므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;n -1&lt;/script&gt; 이 된다. SSE 의 자유도는 예측값 ( &lt;script type=&quot;math/tex&quot;&gt;\hat{Y_i} = \beta_0 + \beta_1 X_1 + \dots + \beta_k X_k&lt;/script&gt; ) 을 추정하기 위해 회귀식의 parameter 인 &lt;script type=&quot;math/tex&quot;&gt;\beta_0, \beta_1, \dots, \beta_k&lt;/script&gt; 가 사용되었으므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;n-k-1&lt;/script&gt; 이 된다. 마지막으로 SSR 의 자유도는 SST - SSE 이므로 자유도는 &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 가 된다. 이는 곧 회귀식에 사용한 독립변수 ( &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;, independent variables ) 의 갯수와 같다는 것을 알 수 있다.&lt;/p&gt;
 </description>
         <pubDate>Mon, 24 Jul 2017 00:00:00 +0900</pubDate>
-        <link>https://jkeun.github.io/2017-07-24/memo-degrees-of-freedom/</link>
-        <guid isPermaLink="true">https://jkeun.github.io/2017-07-24/memo-degrees-of-freedom/</guid>
+        <link>https://jkeun.github.io/2017-07-24/degrees-of-freedom/</link>
+        <guid isPermaLink="true">https://jkeun.github.io/2017-07-24/degrees-of-freedom/</guid>
       </item>
     
       <item>
