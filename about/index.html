@@ -57,17 +57,27 @@ ga('send', 'pageview');
 
   <!-- MathJax -->
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  "HTML-CSS" : {
-    scale : 100,
-  }
-});
-</script>
-
 <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
+
+<script>
+MathJax.Hub.Config({
+        tex2jax: {
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                            }
+});
+MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<style>
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit; color: inherit}
+</style>
 
 </head>
 

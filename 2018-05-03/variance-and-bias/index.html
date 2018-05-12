@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--
+       _             __           
+      (_)___  ____  / /____  _____
+     / / __ \/ __ \/ __/ _ \/ ___/
+    / / / / / /_/ / /_/  __(__  ) 
+ _ / /_/ /_/\____/\__/\___/____/  
+/___/ D A T A , L E A R N I N G                        
+
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bias-Variance Tradeoff</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for JAY" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Bias-Variance Tradeoff - JAY</title>
+<meta property="og:title" content="Bias-Variance Tradeoff" />
+<meta name="description" content="편향과 분산에 대하여" />
+<meta property="og:description" content="편향과 분산에 대하여" />
+<link rel="canonical" href="https://jkeun.github.io/2018-05-03/variance-and-bias/" />
+<meta property="og:url" content="https://jkeun.github.io/2018-05-03/variance-and-bias/" />
+<meta property="og:site_name" content="JAY" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-03T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Bias-Variance Tradeoff",
+"datePublished": "2018-05-03T00:00:00+09:00",
+"description": "편향과 분산에 대하여",
+"url": "https://jkeun.github.io/2018-05-03/variance-and-bias/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-85991641-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  <!-- MathJax -->
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script>
+MathJax.Hub.Config({
+        tex2jax: {
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                            }
+});
+MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<style>
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit; color: inherit}
+</style>
+
+</head>
+
+
+<body>
+  <div class="content-container">
+    <header>
+  <div class="header-small">
+    <a href="https://jkeun.github.io">JAY</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Bias-Variance Tradeoff</div>
+  <span class="post-date">
+    <time>03 May 2018</time>
+  </span>
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#memo">
+          <span>memo</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#bias-variance tradeoff">
+          <span>bias-variance tradeoff</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#variance">
+          <span>variance</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#bias">
+          <span>bias</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#분산">
+          <span>분산</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#편향">
+          <span>편향</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#statistics">
+          <span>statistics</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#machine learning">
+          <span>machine learning</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#ml">
+          <span>ml</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#통계">
+          <span>통계</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="https://jkeun.github.io/tags#머신러닝">
+          <span>머신러닝</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <center><mark>"In statistics and machine learning, the <b>bias-variace tradeoff</b> is the problem of simultaneously minimizing two sources of error that prevent supervised learning algorithms from generalizing beyond their training set."</mark></center>
+<p><br /></p>
+
+<h3 id="bias-and-variance-tradeoff">Bias and Variance Tradeoff</h3>
+<p>통계학과 머신러닝에서 예측모형에 대해서 이야기할 때, 예측 에러는 크게 두가지 부분으로 나뉜다: “Bias(편향)”에 의한 에러와  “Variance(분산)”에 의한 에러. 그러나 불행하게도 <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff#cite_note-6">Bias-variance tradeoff</a>로 인해 양 쪽 모두를 동시에 줄일 수 없으며 또한 이는 모형의 Overfitting(과적합) 또는 Underfitting(과소적합) 문제와도 연결된다. 따라서 뛰어난 모형은 편향과 분산의 총 합을 줄이기 위해 노력해야하며, 이 두 종류의 에러를 이해하는 것은 결국 Over/Under fitting의 실수를 피하고 예측모형의 올바른 진단을 이끌어내는데 도움이 될 것이다.</p>
+
+<h3 id="conceptual--mathematical-definition">Conceptual &amp; Mathematical Definition</h3>
+<p><strong>Error due to Bias</strong>: 편향에 의한 에러는 우리의 prediction function(<script type="math/tex">\hat {f}</script>)과 찾고자 하는 ture function(<script type="math/tex">f</script>)과의 차이로 인해 발생한다. 아래 수식을 보면 편향은 그 차이의 기댓값이(expected, average)임을 알 수 있는데, 그 이유는 다수의 샘플링된 데이터셋(<script type="math/tex">D_i</script>)마다 다수의 prediction function(<script type="math/tex">\hat {f_i}</script>)이 존재하기 때문이다.<br />
+즉 편향은 알고리즘을 학습하는데 있어서 가정 및 학습의 방향성을 의미한다고 볼 수 있으며, 만약 편향에 의한 에러가 크다면 잘못된 방향으로의 학습을 뜻하고, 우리의 prediction function이 주어진 데이터셋에서 features와 target간의 관계를 잘 파악하지 못한 것이라 할 수 있다. (<strong>Underfitting</strong>)</p>
+
+<script type="math/tex; mode=display">\operatorname {Bias} {\big [}{\hat {f}}(x){\big ]}=\operatorname {E} {\big [}{\hat {f}}(x)-f(x){\big ]}</script>
+
+<p><strong>Error due to variance</strong>: 분산에 의한 에러는 주어진 우리의 prediction function들의 다양한 정도, 분산의 정도에 의해 발생한다. 다시말해 실제값(actual point)에 대하여 우리의 prediction function들이 얼마나 다양한 범위로 예측을 하는지이다.<br />
+즉 분산은 알고리즘을 학습하는데 있어서 학습의 일관성을 의미한다고 볼 수 있으며, 만약 분산에 의한 에러가 크다면 각각의 알고리즘 학습이 일관성 없이 중구난방으로 이뤄졌음을 뜻하고, 우리의 prediction funtion이 학습용 데이터(training data)에 포함된 노이즈까지 학습한 것이라 볼 수 있다. (<strong>Overfitting</strong>)</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\operatorname {Var} {\big [}{\hat {f}}(x){\big ]}= & \operatorname {E} {\big [} (\hat {f}(x) - \operatorname{E}[\hat{f}(x)])^2{\big ]} \\
+& \operatorname {E} [{\hat {f}}(x)^{2}]-\operatorname {E} [{\hat {f}}(x)]^{2} \\ 
+\end{align} %]]></script>
+
+<h3 id="graphical-definition">Graphical Definition</h3>
+<p>편향과 분산에 대해서 직관적으로 파악할 수 있는 bulls-eye diagram을 보자. 중앙의 빨간색 목표물이 바로 우리의 모델이 예측해야하는 실제값(<script type="math/tex">y</script>)이며, 목표물에서 멀어지면 멀어질 수록 예측력이 점점 더 나빠짐을 의미한다. 파란색 점들은 샘플링된 여러 데이터셋에 대한 prediction model들의 예측값(<script type="math/tex">y_i</script>, when <script type="math/tex">i</script> is # of models)들을 의미한다.<br />
+편향의 정도에 따라 파란색 점들이 빨간색 목표물로 부터 얼마나 떨어져 있는지를 확인할 수 있고, 분산의 정도에 따라 파란색 점들이 얼마나 흩어져 있는지를 확인할 수 있다.</p>
+
+<center><img src="/images/bias-variance-0.png" width="400" /></center>
+
+<h3 id="bias-variance-decomposition">Bias-Variance Decomposition</h3>
+
+<p>우리의 훈련용 데이터는 <script type="math/tex">x_1, \cdots, x_n</script>개의 data point가 있고, 각각의 <script type="math/tex">x_i</script>에 해당하는 실제값 <script type="math/tex">y_i</script>가 존재한다. 그리고 우리는 다음과 같이 랜덤 노이즈가 섞인 함수 관계로 표현할 수 있다.</p>
+
+<script type="math/tex; mode=display">y = f(x) + \varepsilon, \text{where the noise} ~ \varepsilon \sim \mathcal{N}(0, \sigma^2)</script>
+
+<p>우리의 목표는 이 true function <script type="math/tex">f</script>에 가능한 가장 근접한 prediction function <script type="math/tex">\hat{f}</script>를 찾는 것이며, 이는 <script type="math/tex">y</script>와 <script type="math/tex">\hat{f}</script>의 <a href="https://en.wikipedia.org/wiki/Mean_squared_error">mean squared error</a>를 최소화하는 문제를 품으로써 구할 수 있다. 물론 주어진 <script type="math/tex">x_1, \cdots, x_n</script>뿐만 아니라 주어진 샘플 밖의 data points 에 대해서도 말이다. 그러나 <script type="math/tex">y_i</script>가 갖고있는 랜덤 노이즈(<script type="math/tex">\varepsilon</script>; <em>irreducible error</em>) 때문에 완벽한 <script type="math/tex">\hat{f}</script>를 찾는건 불가능함을 알아야 한다.</p>
+
+<script type="math/tex; mode=display">\min \sum{ \big[ (y - \hat{f})^2 \big] }</script>
+
+<p>일반화된 <script type="math/tex">\hat{f}</script>를 찾는 것은 다수의 샘플링된 데이터셋에 대한 다수의 알고리즘에 의해 진행되기 때문에, 우리가 어떤 <script type="math/tex">\hat{f}</script>를 선택하든지 간에 unseen sample <script type="math/tex">x</script>에 대한 기대오차(expected error)를 구할 수 있고, 이는 아래와 같이 분해가 된다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+{\displaystyle {\begin{aligned}\operatorname {E} {\Big [}{\big (}y-{\hat {f}}(x){\big )}^{2}{\Big ]}&=\operatorname {Bias} {\big [}{\hat {f}}(x){\big ]}^{2}+\operatorname {Var} {\big [}{\hat {f}}(x){\big ]}+\sigma ^{2}\\\end{aligned}}} %]]></script>
+
+<script type="math/tex; mode=display">(\text{mse} = \text{Bias}^2 + \text{Variance} + \text{irreducible error})</script>
+
+<h4 id="derivation">Derivation</h4>
+<p>먼저 유도과정에 사용되는 수식을을 나열하면 다음과 같다.</p>
+
+<p>i. 분산식의 재정렬</p>
+
+<script type="math/tex; mode=display">{\displaystyle {\begin{aligned}\operatorname {Var} [X]=\operatorname {E} [X^{2}]-\operatorname {E} [X]^{2} \Longleftrightarrow \operatorname {E} [X^{2}]=\operatorname {Var} [X]+\operatorname {E} [X]^{2}\end{aligned}}}</script>
+
+<p>ii. <script type="math/tex">y</script>의 기댓값<br />
+ture function <script type="math/tex">f</script>는 deterministic(결정된 함수)이므로 <script type="math/tex">\operatorname{E}[f] = f</script>이다.<br />
+irreducible error <script type="math/tex">\varepsilon \sim \mathcal{N}(0, \sigma^2)</script> 이므로 <script type="math/tex">\operatorname{E} [\varepsilon] = 0</script>이다. 따라서,</p>
+
+<script type="math/tex; mode=display">{\displaystyle \operatorname {E} [y]=\operatorname {E} [f+\varepsilon ]=\operatorname {E} [f]=f}.</script>
+
+<p>iii. <script type="math/tex">y</script>의 분산<br />
+<script type="math/tex">\operatorname{Var} [\varepsilon] = \sigma^2</script>이며, (i) &amp; (ii) 에 의해,</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+{\displaystyle {\begin{aligned}\operatorname {Var} [y]&=\operatorname {E} [(y-\operatorname {E} [y])^{2}]=\operatorname {E} [(y-f)^{2}]\\&=\operatorname {E} [(f+\varepsilon -f)^{2}]=\operatorname {E} [\varepsilon ^{2}]\\&=\operatorname {Var} [\varepsilon ]+\operatorname {E} [\varepsilon ]^{2}\\&=\sigma ^{2}\end{aligned}}} %]]></script>
+
+<p>따라서 <strong>Bias-Variance Decomposition</strong>은 다음과 같이 쓸 수 있다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+{\displaystyle {\begin{aligned}\operatorname {E} {\big [}(y-{\hat {f}})^{2}{\big ]}&=\operatorname {E} [y^{2}+{\hat {f}}^{2}-2y{\hat {f}}]\\&=\operatorname {E} [y^{2}]+\operatorname {E} [{\hat {f}}^{2}]-\operatorname {E} [2y{\hat {f}}]\\&=\operatorname {Var} [y]+\operatorname {E} [y]^{2}+\operatorname {Var} [{\hat {f}}]+\operatorname {E} [{\hat {f}}]^{2}-2f\operatorname {E} [{\hat {f}}]\\&=\operatorname {Var} [y]+\operatorname {Var} [{\hat {f}}]+(f^{2}-2f\operatorname {E} [{\hat {f}}]+\operatorname {E} [{\hat {f}}]^{2})\\&=\operatorname {Var} [y]+\operatorname {Var} [{\hat {f}}]+(f-\operatorname {E} [{\hat {f}}])^{2}\\&=\sigma ^{2}+\operatorname {Var} [{\hat {f}}]+\operatorname {Bias} [{\hat {f}}]^{2}\\&=\text{irreducible error} + \text{Variance} + \text{Bias}^2\end{aligned}}} %]]></script>
+
+<h3 id="simulation-of-bias-variance-tradeoff">Simulation of Bias-Variance Tradeoff</h3>
+<p><a href="https://en.wikipedia.org/wiki/Polynomial_regression">Polynomial Regression</a>에서 모형의 복잡도를 결정하는 것은 degrees of polynomial 이다. Over/Under fitting 을 방지하고 모형의 제대로된 학습을 위해선 degrees of polynomial 을 잘 조정해야하며, 이 값이 변함에 따라 편향과 분산은 어떻게 변하는지 확인할 수 있다.<br />
+그림에서 회색 점은 실제값(<script type="math/tex">y_i</script>)를 나타내며, 빨간색 선이 우리가 찾고자 하는 true function(<script type="math/tex">f</script>)이다. 연한 파란색 선은 개별 prediction function(<script type="math/tex">f_1, \cdots, f_n</script>)이며, 진한 파란색 선은 N개의 prediction functions의 평균인 expected prediction function(<script type="math/tex">\operatorname{E}[\hat(f)]</script>)을 나타낸다.</p>
+
+<p><strong>degree = 1</strong>: degree 가 1인 경우 편향은 0.4010으로 다소 높은 값을 가지며, 분산은 0.3946으로 낮은 값을 갖는다. 이는 <script type="math/tex">\hat{f}</script>가 너무 단순하여 주어진 데이터에 대해 학습이 제대로 이뤄지지 않았음을 보여준다. (Underfitting)</p>
+
+<center><img src="/images/bias-variance-1.png" width="600" /></center>
+<center><img src="/images/bias-variance-2.png" width="350" /></center>
+
+<p><strong>degree = 4</strong>: degree 가 4인 경우 편향은 0.1384로 degree 1 일 때보다 대폭 감소하였으며, 분산은 0.5529로 다소 증가하였다. 편향과 분산의 에러의 총 합을 보면 이전보다 0.1가량 줄어들어 <script type="math/tex">\hat{f}</script>가 주어진 데이터에 대해 학습이 잘 이뤄졌음을 볼 수 있다. (Well-fitted)</p>
+
+<center><img src="/images/bias-variance-3.png" width="600" /></center>
+<center><img src="/images/bias-variance-4.png" width="350" /></center>
+
+<p><strong>degree = 10</strong>: degree 가 10인 경우 편향은 0.3811으로 degree 4일때보다 높게 나왔지만 이는 샘플의 수가 충분치 않아 생기는 현상으로 일반적으로 편향은 감소하게 된다. 반면에 분산은 9.7537로 대폭 상승하였으며, 이는 <script type="math/tex">\hat{f}</script>가 너무 복잡하여 주어진 데이터가 가진 노이즈까지 학습하여 과적합이 이뤄졌음을 보여준다. (Overfitting)</p>
+
+<center><img src="/images/bias-variance-5.png" width="600" /></center>
+<center><img src="/images/bias-variance-6.png" width="350" /></center>
+
+<p><strong>Train &amp; Test Error</strong>: 일반적으로 모형의 복잡도가 증가할수록 Train Set에 대해서 에러는 감소한다. 그러나 우리에게 중요한 것은 주어진 데이터셋에 대해 예측력을 높이는 것이 아닌, 앞으로 모형을 활용할 Unseen Data에 대한 예측력이며 이는 Test Set에 대한 에러를 의미한다.<br />
+아래 그림에서와 같이 모형의 복잡도(Degree)가 증가할 수록 Train set에 대한 총 오차는 지속적으로 감소함을 볼 수 있고, Test set에 대한 총 오차는 degree = 4일때 최소가 되어 모형의 최적 degree는 4가 됨을 알 수 있다.</p>
+
+<center><img src="/images/bias-variance-8.png" width="500" /></center>
+<center><img src="/images/bias-variance-9.png" width="500" /></center>
+
+<hr />
+
+<p><em>reference</em></p>
+<ul>
+  <li><a href="http://scott.fortmann-roe.com/docs/BiasVariance.html">Understanding the Bias-Variance Tradeoff</a></li>
+  <li><a href="http://norman3.github.io/prml/docs/chapter03/2.html">Bias-Variance Decomposition</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff#cite_note-6">Bias–variance tradeoff</a></li>
+</ul>
+
+<p><em>code</em></p>
+<ul>
+  <li><a href="https://github.com/JKeun/something-fun/blob/master/notebooks/bias-variance-tradeoff.ipynb">github.com/JKeun</a></li>
+</ul>
+
+
+  <!-- Disqus -->
+  
+  <div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//jkeun.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+  
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+    <a href="https://www.facebook.com/jaekeun.park.7"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+    <a href="https://github.com/JKeun"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+
+    
+    <a href="https://www.linkedin.com/in/jay-park-84133b113"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+    
+    <a href="mailto:jkeun1224@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2017 Jay Park. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

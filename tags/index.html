@@ -56,17 +56,27 @@ ga('send', 'pageview');
 
   <!-- MathJax -->
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  "HTML-CSS" : {
-    scale : 100,
-  }
-});
-</script>
-
 <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
+
+<script>
+MathJax.Hub.Config({
+        tex2jax: {
+                    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                            }
+});
+MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<style>
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit; color: inherit}
+</style>
 
 </head>
 
@@ -120,6 +130,26 @@ MathJax.Hub.Config({
     
       
       <li>
+        <a href="#bias">
+          <span>bias</span>
+          <span class="count">1</span>
+        </a>
+      </li>
+    
+    
+    
+      
+      <li>
+        <a href="#bias-variance tradeoff">
+          <span>bias-variance tradeoff</span>
+          <span class="count">1</span>
+        </a>
+      </li>
+    
+    
+    
+      
+      <li>
         <a href="#data analysis">
           <span>data analysis</span>
           <span class="count">1</span>
@@ -162,7 +192,7 @@ MathJax.Hub.Config({
       <li>
         <a href="#machine learning">
           <span>machine learning</span>
-          <span class="count">2</span>
+          <span class="count">3</span>
         </a>
       </li>
     
@@ -172,6 +202,16 @@ MathJax.Hub.Config({
       <li>
         <a href="#memo">
           <span>memo</span>
+          <span class="count">2</span>
+        </a>
+      </li>
+    
+    
+    
+      
+      <li>
+        <a href="#ml">
+          <span>ml</span>
           <span class="count">1</span>
         </a>
       </li>
@@ -212,7 +252,7 @@ MathJax.Hub.Config({
       <li>
         <a href="#statistics">
           <span>statistics</span>
-          <span class="count">4</span>
+          <span class="count">5</span>
         </a>
       </li>
     
@@ -230,8 +270,58 @@ MathJax.Hub.Config({
     
       
       <li>
+        <a href="#variance">
+          <span>variance</span>
+          <span class="count">1</span>
+        </a>
+      </li>
+    
+    
+    
+      
+      <li>
+        <a href="#머신러닝">
+          <span>머신러닝</span>
+          <span class="count">1</span>
+        </a>
+      </li>
+    
+    
+    
+      
+      <li>
+        <a href="#분산">
+          <span>분산</span>
+          <span class="count">1</span>
+        </a>
+      </li>
+    
+    
+    
+      
+      <li>
         <a href="#자유도">
           <span>자유도</span>
+          <span class="count">1</span>
+        </a>
+      </li>
+    
+    
+    
+      
+      <li>
+        <a href="#통계">
+          <span>통계</span>
+          <span class="count">1</span>
+        </a>
+      </li>
+    
+    
+    
+      
+      <li>
+        <a href="#편향">
+          <span>편향</span>
           <span class="count">1</span>
         </a>
       </li>
@@ -301,6 +391,50 @@ MathJax.Hub.Config({
         <a href="/2017-07-24/degrees-of-freedom/">
           
           <span class="tag-post-title">Degrees of Freedom</span>
+        </a>
+      </li>
+    
+    
+    </ul>
+  </article>
+
+
+  
+  <article>
+
+  <div class="tag-title" id="bias">
+    bias
+  </div>
+    <ul>
+    
+    
+      <li class="tag-post">
+        
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
+        </a>
+      </li>
+    
+    
+    </ul>
+  </article>
+
+
+  
+  <article>
+
+  <div class="tag-title" id="bias-variance tradeoff">
+    bias-variance tradeoff
+  </div>
+    <ul>
+    
+    
+      <li class="tag-post">
+        
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
         </a>
       </li>
     
@@ -418,6 +552,16 @@ MathJax.Hub.Config({
     
       <li class="tag-post">
         
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
+        </a>
+      </li>
+    
+    
+    
+      <li class="tag-post">
+        
         <a href="/2017-06-13/ml-1-2-supervised-learning/">
           
           <span class="tag-post-title">ML 1.2 Supervised learning</span>
@@ -450,9 +594,41 @@ MathJax.Hub.Config({
     
       <li class="tag-post">
         
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
+        </a>
+      </li>
+    
+    
+    
+      <li class="tag-post">
+        
         <a href="/2017-07-24/degrees-of-freedom/">
           
           <span class="tag-post-title">Degrees of Freedom</span>
+        </a>
+      </li>
+    
+    
+    </ul>
+  </article>
+
+
+  
+  <article>
+
+  <div class="tag-title" id="ml">
+    ml
+  </div>
+    <ul>
+    
+    
+      <li class="tag-post">
+        
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
         </a>
       </li>
     
@@ -558,6 +734,16 @@ MathJax.Hub.Config({
     
       <li class="tag-post">
         
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
+        </a>
+      </li>
+    
+    
+    
+      <li class="tag-post">
+        
         <a href="/2017-07-24/degrees-of-freedom/">
           
           <span class="tag-post-title">Degrees of Freedom</span>
@@ -634,6 +820,72 @@ MathJax.Hub.Config({
   
   <article>
 
+  <div class="tag-title" id="variance">
+    variance
+  </div>
+    <ul>
+    
+    
+      <li class="tag-post">
+        
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
+        </a>
+      </li>
+    
+    
+    </ul>
+  </article>
+
+
+  
+  <article>
+
+  <div class="tag-title" id="머신러닝">
+    머신러닝
+  </div>
+    <ul>
+    
+    
+      <li class="tag-post">
+        
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
+        </a>
+      </li>
+    
+    
+    </ul>
+  </article>
+
+
+  
+  <article>
+
+  <div class="tag-title" id="분산">
+    분산
+  </div>
+    <ul>
+    
+    
+      <li class="tag-post">
+        
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
+        </a>
+      </li>
+    
+    
+    </ul>
+  </article>
+
+
+  
+  <article>
+
   <div class="tag-title" id="자유도">
     자유도
   </div>
@@ -645,6 +897,50 @@ MathJax.Hub.Config({
         <a href="/2017-07-24/degrees-of-freedom/">
           
           <span class="tag-post-title">Degrees of Freedom</span>
+        </a>
+      </li>
+    
+    
+    </ul>
+  </article>
+
+
+  
+  <article>
+
+  <div class="tag-title" id="통계">
+    통계
+  </div>
+    <ul>
+    
+    
+      <li class="tag-post">
+        
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
+        </a>
+      </li>
+    
+    
+    </ul>
+  </article>
+
+
+  
+  <article>
+
+  <div class="tag-title" id="편향">
+    편향
+  </div>
+    <ul>
+    
+    
+      <li class="tag-post">
+        
+        <a href="/2018-05-03/variance-and-bias/">
+          
+          <span class="tag-post-title">Bias-Variance Tradeoff</span>
         </a>
       </li>
     
