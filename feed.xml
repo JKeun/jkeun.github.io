@@ -52,7 +52,7 @@
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;(\text{mse} = \text{Bias}^2 + \text{Variance} + \text{irreducible error})&lt;/script&gt;
 
 &lt;h4 id=&quot;derivation&quot;&gt;Derivation&lt;/h4&gt;
-&lt;p&gt;먼저 유도과정에 사용되는 수식을을 나열하면 다음과 같다.&lt;/p&gt;
+&lt;p&gt;먼저 유도과정에 사용되는 수식을 나열하면 다음과 같다.&lt;/p&gt;
 
 &lt;p&gt;i. 분산식의 재정렬&lt;/p&gt;
 
