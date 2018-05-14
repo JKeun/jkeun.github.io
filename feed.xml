@@ -44,12 +44,12 @@
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\min \sum{ \big[ (y - \hat{f})^2 \big] }&lt;/script&gt;
 
-&lt;p&gt;일반화된 &lt;script type=&quot;math/tex&quot;&gt;\hat{f}&lt;/script&gt;를 찾는 것은 다수의 샘플링된 데이터셋에 대한 다수의 알고리즘에 의해 진행되기 때문에, 우리가 어떤 &lt;script type=&quot;math/tex&quot;&gt;\hat{f}&lt;/script&gt;를 선택하든지 간에 unseen sample &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;에 대한 기대오차(expected error)를 구할 수 있고, 이는 아래와 같이 분해가 된다.&lt;/p&gt;
+&lt;p&gt;일반화된 &lt;script type=&quot;math/tex&quot;&gt;\hat{f}&lt;/script&gt;를 찾는 것은 다수의 샘플링된 데이터셋에 대한 다수의 알고리즘에 의해 진행되기 때문에, 우리가 어떤 &lt;script type=&quot;math/tex&quot;&gt;\hat{f}&lt;/script&gt;를 선택하든지 간에 unseen sample(=test set) &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;에 대한 기대오차(expected error)를 구할 수 있고, 이는 아래와 같이 분해가 된다.&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 {\displaystyle {\begin{aligned}\operatorname {E} {\Big [}{\big (}y-{\hat {f}}(x){\big )}^{2}{\Big ]}&amp;=\operatorname {Bias} {\big [}{\hat {f}}(x){\big ]}^{2}+\operatorname {Var} {\big [}{\hat {f}}(x){\big ]}+\sigma ^{2}\\\end{aligned}}} %]]&gt;&lt;/script&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;(\text{mse} = \text{Bias}^2 + \text{Variance} + \text{irreducible error})&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(\text{mse}_{testset} = \text{Bias}^2 + \text{Variance} + \text{irreducible error})&lt;/script&gt;
 
 &lt;h4 id=&quot;derivation&quot;&gt;Derivation&lt;/h4&gt;
 &lt;p&gt;먼저 유도과정에 사용되는 수식을 나열하면 다음과 같다.&lt;/p&gt;

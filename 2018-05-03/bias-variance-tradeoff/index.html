@@ -219,12 +219,12 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 
 <script type="math/tex; mode=display">\min \sum{ \big[ (y - \hat{f})^2 \big] }</script>
 
-<p>일반화된 <script type="math/tex">\hat{f}</script>를 찾는 것은 다수의 샘플링된 데이터셋에 대한 다수의 알고리즘에 의해 진행되기 때문에, 우리가 어떤 <script type="math/tex">\hat{f}</script>를 선택하든지 간에 unseen sample <script type="math/tex">x</script>에 대한 기대오차(expected error)를 구할 수 있고, 이는 아래와 같이 분해가 된다.</p>
+<p>일반화된 <script type="math/tex">\hat{f}</script>를 찾는 것은 다수의 샘플링된 데이터셋에 대한 다수의 알고리즘에 의해 진행되기 때문에, 우리가 어떤 <script type="math/tex">\hat{f}</script>를 선택하든지 간에 unseen sample(=test set) <script type="math/tex">x</script>에 대한 기대오차(expected error)를 구할 수 있고, 이는 아래와 같이 분해가 된다.</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 {\displaystyle {\begin{aligned}\operatorname {E} {\Big [}{\big (}y-{\hat {f}}(x){\big )}^{2}{\Big ]}&=\operatorname {Bias} {\big [}{\hat {f}}(x){\big ]}^{2}+\operatorname {Var} {\big [}{\hat {f}}(x){\big ]}+\sigma ^{2}\\\end{aligned}}} %]]></script>
 
-<script type="math/tex; mode=display">(\text{mse} = \text{Bias}^2 + \text{Variance} + \text{irreducible error})</script>
+<script type="math/tex; mode=display">(\text{mse}_{testset} = \text{Bias}^2 + \text{Variance} + \text{irreducible error})</script>
 
 <h4 id="derivation">Derivation</h4>
 <p>먼저 유도과정에 사용되는 수식을 나열하면 다음과 같다.</p>
